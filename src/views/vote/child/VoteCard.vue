@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-col :span="8" v-for="(item, index) in cardData" :key="index">
-      <el-card :body-style="{ padding: '0 0 10px 0', background: '#f3fff4' }">
+      <el-card :body-style="{ padding: '0 0 10px 0', background: '#fff3f6' }">
         <card-text :item="item" :key="index" @click.native="voteDetail(item)"/>
         <el-row>
           <el-col :span="4" :offset="14">

@@ -14,7 +14,8 @@
         <span>{{ form.contact }}</span>
       </el-form-item>
       <el-form-item label="需求原因" :label-width="formLabelWidth" prop="address">
-        <span>{{ form.reason }}</span>
+<!--        <span>{{ form.reason }}</span>-->
+        <span>原因</span>
       </el-form-item>
 <!--      <el-form-item label="详细地址" :label-width="formLabelWidth" prop="addressDetaile">-->
 <!--        <span>{{ form.addressDetaile }}</span>-->
@@ -23,7 +24,7 @@
 
     <div slot="footer" class="dialog-footer">
       <el-button v-if="perDem" type="primary" @click="sureDialog">确定</el-button>
-      <el-button v-else type="danger" @click="sureDialog">捐助</el-button>
+      <el-button v-else type="success" @click="sureDialog">捐助</el-button>
     </div>
   </div>
 </template>

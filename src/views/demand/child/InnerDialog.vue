@@ -18,7 +18,7 @@
       </el-form-item>
     </el-form>
     <div slot="footer" class="dialog-footer">
-      <el-button type="danger" @click="sureDemand('demForm')">确定</el-button>
+      <el-button type="success" @click="sureDemand('demForm')">确定</el-button>
     </div>
   </div>
 </template>

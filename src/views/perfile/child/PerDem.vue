@@ -4,13 +4,30 @@
       <el-col :span="4">
         <h2>我的需求</h2>
       </el-col>
-      <el-col :span="2" :offset="18">
+      <el-col :span="5">
+        <el-radio-group
+            v-model="status"
+            size="medium"
+            fill="#8da1db"
+            @change="select"
+        >
+          <el-radio-button label="0">等待中</el-radio-button>
+          <el-radio-button label="1" @change="selectDonation">已捐助</el-radio-button>
+        </el-radio-group>
+      </el-col>
+      <el-col :span="2" :offset="13">
         <el-button round type="danger" plain @click="dialogRelease = true">发布需求</el-button>
       </el-col>
     </el-row>
 
     <el-row :gutter="50">
-      <dem-card :cardData="demandData" @DemDetail="DemDetail" :btnShow="false"/>
+      <dem-card v-if="status==0"
+                :cardData="demandData"
+                @DemDetail="DemDetail"
+                :btnShow="false"/>
+      <don-card v-else :cardData="donatedData"
+                @DemDetail="DemDetail"
+                :btnShow="false"/>
     </el-row>
 
     <el-dialog title="物资需求详情" :visible.sync="dialogFormVisible">
@@ -29,19 +46,22 @@ import DemCard from "@/views/demand/child/DemCard";
 import DemDialog from "@/views/demand/child/DemDialog";
 import PerDonDialog from "@/views/perfile/child/PerDonDialog";
 import {DemandFactory} from "@/network/conflux";
+import DonCard from "@/views/donation/child/DonCard";
 
 export default {
   name: "PerDem",
-  components: {DemDialog, DemCard, PerDonDialog},
+  components: {DonCard, DemDialog, DemCard, PerDonDialog},
   computed: {
     ...mapState(["currentUser", "contractDemandFactory", "account"])
   },
   data() {
     return {
-      search: '',
+      status: 0,
       dialogFormVisible: false,
       dialogRelease: false,
       demandData: [],
+      donatedData: [],
+      oldDemandData: [],
       demand: {}
     }
   },
@@ -51,11 +71,9 @@ export default {
   methods: {
     init() {
       this.contractDemandFactory.index().then(res => {
-      // let res = DemandFactory.index().call().then(res => {
-        console.log(res.toString())
+        // let res = DemandFactory.index().call().then(res => {
         for (let i = 0; i < res.toString(); i++) {
           this.contractDemandFactory.demands(i).then(res => {
-            console.log(res)
             let demand = {
               id: res[0],
               username: res[1],
@@ -64,7 +82,15 @@ export default {
               contact: res[4],
               status: res[5],
             }
-            this.demandData.push(demand)
+            // console.log(res[5])
+            if (demand.status[0] > 1) {
+              //已被捐赠
+              console.log(demand)
+              this.donatedData.push(demand)
+            } else {
+              //正在投票或等待捐赠
+              this.demandData.push(demand)
+            }
             // }
           }).catch(err => {
             console.log(err)
@@ -108,7 +134,24 @@ export default {
           type: 'error'
         });
       })
-    }
+    },
+    selectWait() {
+      console.log("selectWait")
+      return this.demandData.filter(data => data.status < 0)
+    },
+    selectDonation() {
+      return this.demandData.filter(data => data.status >= 0)
+    },
+    select() {
+      if (this.status == 1) {
+        return this.demandData.filter(item =>
+            item.status[0] > 1
+        )
+      } else {
+        return this.demandData.filter(item =>
+            item.status[0] <= 1 || item.status[0] == undefined)
+      }
+    },
   }
 }
 </script>
@@ -123,7 +166,22 @@ h2 {
   color: #1e2947;
 }
 
-.el-button {
+.el-button, .el-radio-group {
   margin-top: 20px;
+}
+
+</style>
+<style>
+.el-radio-button__inner:hover {
+  /*color: #7F95D1;*/
+  color: #8b9dd5;
+}
+
+.el-radio-button__orig-radio:checked .el-radio-button__inner {
+  color: #FFF;
+  background-color: #8b9dd5;
+  border-color: #8b9dd5;
+  -webkit-box-shadow: -1px 0 0 0 #8b9dd5;
+  box-shadow: -1px 0 0 0 #8b9dd5;
 }
 </style>

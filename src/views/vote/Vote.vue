@@ -1,10 +1,13 @@
 <template>
   <div class="box-dem">
     <el-row>
-      <el-col :span="4">
+      <el-col :span="2">
         <h2>投票表决</h2>
       </el-col>
-      <el-col :span="4" :offset="16">
+      <el-col :span="4" :offset="1">
+        <p style="margin-top: 25px"><i class="el-icon-coin"/> 您拥有的投票权：12</p>
+      </el-col>
+      <el-col :span="4" :offset="13">
         <el-input placeholder="搜索需求方名称" v-model="search" class="input-with-select">
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
@@ -22,7 +25,15 @@
     </el-dialog>
 
     <el-dialog title="投票详情" :visible.sync="dialogVote">
-      <vote-dialog @approve="approve" @against="against" @agree="agree" :form="vote" :is-agree="isAgree" />
+      <vote-dialog
+          @approve="approve"
+          @against="against"
+          @agree="agree"
+          :form="vote"
+          :is-agree="isAgree"
+          :agrees="agrees"
+          :againsts="againsts"
+      />
     </el-dialog>
 
   </div>
@@ -88,26 +99,42 @@ export default {
         }
       })
     },
+
+    getAllVoters() {
+      console.log(this.vote.id)
+      this.contractVote.getAllVoters(this.vote.id).then(res => {
+        console.log(res)
+        this.agrees = res[0];
+        this.againsts = res[1];
+      })
+    },
+
     sureDialog() {
       this.dialogFormVisible = false
     },
+
     voteDetail(item) {
       this.dialogFormVisible = true
       this.vote = item
       console.log(item)
     },
+
     voteAgree(item) {
       this.dialogVote = true
       this.isAgree = true
       this.vote = item
+      this.getAllVoters()
       console.log(item)
     },
+
     voteAgainst(item) {
       this.dialogVote = true
       this.isAgree = false
       this.vote = item
+      this.getAllVoters()
       console.log(item)
     },
+
     approve(item) {
       // this.contractVote.agree(item.id[0]).
       // sendTransaction({
@@ -116,17 +143,18 @@ export default {
       //   console.log(res)
       //   this.dialogFormVisible = false
       //   this.$message({
-      //     message: '同意成功！',
+      //     message: '支持成功！',
       //     type: 'success'
       //   });
       // }).catch(err => {
       //   console.log(err)
       //   this.$message({
-      //     message: '同意失败！',
+      //     message: '支持失败！',
       //     type: 'danger'
       //   });
       // })
     },
+
     agree(item) {
       this.contractVote.agree(item.id[0]).
       sendTransaction({
@@ -135,18 +163,19 @@ export default {
         console.log(res)
         this.dialogFormVisible = false
         this.$message({
-          message: '同意成功！',
+          message: '支持成功！',
           type: 'success'
         });
       }).catch(err => {
         console.log(err)
         this.$message({
-          message: '同意失败！',
+          message: '支持失败！',
           type: 'danger'
         });
       })
 
     },
+
     against(item) {
       this.contractVote.against(item.id[0]).
       sendTransaction({
@@ -179,7 +208,7 @@ h2 {
   color: #1e2947;
 }
 
-.input-with-select {
+.input-with-select, span {
   margin-top: 20px;
 }
 </style>

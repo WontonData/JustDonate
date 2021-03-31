@@ -12,10 +12,7 @@
     </el-row>
 
     <el-dialog title="物资援助详情" :visible.sync="dialogFormVisible">
-      <don-dialog @sureDialog="dialogFormVisible = false"/>
-      <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-      </div>
+      <don-dialog @sureDialog="dialogFormVisible = false" :form="donate"/>
     </el-dialog>
 
   </div>
@@ -30,22 +27,52 @@ export default {
   name: "PerDon",
   components: {DonDialog, DonCard},
   computed: {
-    ...mapState(["currentUser", "contractVote", "account"])
+    ...mapState(["contractDemandFactory", "contractDonateFactory", "account"])
   },
   created() {
-    this.donationData = [
-      {}
-    ]
+    this.init()
   },
   data() {
     return {
-      donationData: '',
-      dialogFormVisible: false
+      search: '',
+      donationData: [],
+      donate: {},
+      dialogFormVisible: false,
+      innerVisible: false
     }
   },
   methods: {
+    init() {
+      this.contractDonateFactory.index().then(res => {
+        console.log(res)
+        for (let i = 0; i < res[0]; i++) {
+          this.contractDonateFactory.donates(i).then(res => {
+            console.log(res)
+            let donate = {
+              id: res[0],
+              id2: res[1],
+              username: res[2],
+              sender: res[3],
+              content: res[4],
+              image: res[5],
+              address: res[6],
+              courier: res[7],
+              status: res[8],
+            }
+            this.contractDemandFactory.demands(res[1]).then(res => {
+              donate.demandName = res[1];
+              this.donationData.push(donate)
+
+            })
+            console.log(donate)
+          })
+        }
+      })
+    },
+
     DonDetail(item) {
-      // this.dialogFormVisible = true
+      this.dialogFormVisible = true
+      this.donate = item
       console.log(item)
     },
   }

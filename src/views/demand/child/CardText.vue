@@ -32,7 +32,8 @@ export default {
           this.item.sender.substr(this.item.sender.length - 8,this.item.sender.length)
     },
     reasonSub() {
-      return this.item.sender.substr(0,25) + "···"
+      // return this.item.sender.substr(0,25) + "···"
+      return "原因" + "···"
     }
   },
   props: {

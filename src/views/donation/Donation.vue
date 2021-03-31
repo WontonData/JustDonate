@@ -60,7 +60,7 @@ export default {
             let donate = {
               id: res[0],
               id2: res[1],
-              name: res[2],
+              username: res[2],
               sender: res[3],
               content: res[4],
               image: res[5],

@@ -6,7 +6,7 @@
         <el-tag type="danger" style="margin-top: 1rem ">收</el-tag>
       </div>
       <div class="right">
-        <p>{{ item.name }}</p>
+        <p>{{ item.username }}</p>
         <p style="margin-top: 1rem ">{{ item.demandName }}</p>
       </div>
     </div>

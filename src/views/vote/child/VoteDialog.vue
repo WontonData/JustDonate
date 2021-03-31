@@ -2,48 +2,39 @@
   <div>
     <div class="voteBox">
       <div v-show="isAgree">
-        <el-divider><b>同意票</b></el-divider>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
+        <h3>您投的是支持票</h3>
+        <el-divider><b>支持者</b></el-divider>
+        <p v-show="agrees !==undefined && agrees.length > 0" v-for="item in agrees" >
+          {{item}}
+        </p>
+        <p v-show="agrees == undefined || agrees.length <= 0">
+          暂无数据
+        </p>
       </div>
 
-      <el-divider ><b>反对票</b></el-divider>
-      <p>饿了别叫妈, 叫饿了么</p>
-      <p>饿了别叫妈, 叫饿了么</p>
-      <p>饿了别叫妈, 叫饿了么</p>
-      <p>饿了别叫妈, 叫饿了么</p>
-      <p>饿了别叫妈, 叫饿了么</p>
-      <p>饿了别叫妈, 叫饿了么</p>
-      <p>饿了别叫妈, 叫饿了么</p>
-      <p>饿了别叫妈, 叫饿了么</p>
-      <p>饿了别叫妈, 叫饿了么</p>
-      <p>饿了别叫妈, 叫饿了么</p>
+      <h3 v-show="!isAgree">您投的是反对票</h3>
+      <el-divider ><b>反对者</b></el-divider>
+      <p v-show="againsts !==undefined && againsts.length > 0" v-for="item in againsts" >
+        {{item}}
+      </p>
+      <p v-show="againsts == undefined || againsts.length <= 0">
+        暂无数据
+      </p>
+
       <div v-show="!isAgree">
-        <el-divider><b>同意票</b></el-divider>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
-        <p>饿了别叫妈, 叫饿了么</p>
+        <el-divider><b>支持者</b></el-divider>
+        <p v-show="agrees !==undefined && agrees.length > 0" v-for="item in agrees" >
+          {{item}}
+        </p>
+        <p v-show="agrees == undefined || agrees.length <= 0">
+          暂无数据
+        </p>
       </div>
     </div>
     <div slot="footer" class="dialog-footer">
       <el-button class="item" type="danger" @click="approve">授权</el-button>
-      <el-button v-if="isAgree" class="item" type="success" @click="agree">同意</el-button>
-      <el-button v-else type="info" @click="against">反对</el-button>
+      <el-button v-if="isAgree" class="item" type="success" @click="agree">确认</el-button>
+      <el-button v-else type="info" @click="against">确认</el-button>
     </div>
   </div>
 </template>
@@ -95,10 +86,14 @@ export default {
   overflow:auto;
 }
 .voteBox p {
-  margin-left: 1rem;
+  /*margin-left: 1rem;*/
+  text-align: center;
 }
 .el-divider {
   width: 90%;
-  margin:10px auto;
+  margin: 20px auto;
+}
+h3 {
+  text-align: center;
 }
 </style>
