@@ -72,6 +72,7 @@ export default {
   },
   methods: {
     init() {
+      let index = 0
       this.contractDemandFactory.index().then(res => {
         // let res = DemandFactory.index().call().then(res => {
         for (let i = 0; i < res.toString(); i++) {
@@ -85,13 +86,13 @@ export default {
               status: res[5],
             }
             // console.log(res[5])
-            let index = 0
             if (demand.status[0] > 1) {
               //已被捐赠
               console.log(demand)
               demand.demandName = res[1]
               demand.username = "捐助者" + i
-              demand.hash = this.hash[index++];
+              demand.hash = this.hash[index];
+              index = index + 1;
               this.donatedData.push(demand)
               //暂时判断 过滤
             } else if (demand.username == "杭电信工") {
