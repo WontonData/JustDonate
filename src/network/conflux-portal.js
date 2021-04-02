@@ -27,7 +27,7 @@ class ConfluxPortal {
 
     //投票
     this.contractVote = window.confluxJS.Contract({
-      address: "0x8dfe9ec6A9dAE871Cd73E0f00110Fa392D5B740A",
+      address: "cfxtest:type.contract:acb30f0zy83vaxew8tyraj2c1g92yfmpneunkdxmb5",
       abi: require("network/abiVote.json")
     });
     //捐赠

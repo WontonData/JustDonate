@@ -11,10 +11,10 @@
       </div>
     </div>
     <span class="wuzi">
-      区块地址:
+      交易哈希:
       <a target="_blank"
-         href="https://confluxscan.io/block/0x090ab014a7258ea4c98a55e8a58c28ab6c8e50d0512b64f5d2ba458ca57dad5e">
-        {{ senderSub }}
+         :href="`https://testnet.confluxscan.io/transaction/${item.hash}`">
+        {{ hsahSub }}
       </a>
     </span><br/>
     <span class="wuzi">捐赠物资: {{ item.content }}</span>
@@ -25,9 +25,9 @@
 export default {
   name: "CardText",
   computed: {
-    senderSub() {
-      return this.item.sender.substr(0, 11) + "···" +
-          this.item.sender.substr(this.item.sender.length - 8, this.item.sender.length)
+    hsahSub() {
+      return this.item.hash.substr(0, 15) + "···" +
+          this.item.hash.substr(this.item.hash.length - 10, this.item.hash.length)
     }
   },
   props: {

@@ -38,7 +38,9 @@ export default {
       donationData: [],
       donate: {},
       dialogFormVisible: false,
-      innerVisible: false
+      innerVisible: false,
+      hash: ['0x3757a1fbe8be8b3a20a32caa3e5bc0fd419c1104536240861edd10af6097c4e5',
+        '0x054bc7fb7e875e6574c5eaf298c7946652614c2888d1c17972901dffab1e578c']
     }
   },
   methods: {
@@ -58,6 +60,7 @@ export default {
               address: res[6],
               courier: res[7],
               status: res[8],
+              hash: this.hash[i]
             }
             this.contractDemandFactory.demands(res[1]).then(res => {
               donate.demandName = res[1];

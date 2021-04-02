@@ -25,9 +25,9 @@
                 :cardData="demandData"
                 @DemDetail="DemDetail"
                 :btnShow="false"/>
-      <don-card v-else :cardData="donatedData"
-                @DemDetail="DemDetail"
-                :btnShow="false"/>
+      <don-card v-else
+                :cardData="donatedData"
+                @DonDetail="DemDetail"/>
     </el-row>
 
     <el-dialog title="物资需求详情" :visible.sync="dialogFormVisible">
@@ -62,7 +62,9 @@ export default {
       demandData: [],
       donatedData: [],
       oldDemandData: [],
-      demand: {}
+      demand: {},
+      hash: ['0x3757a1fbe8be8b3a20a32caa3e5bc0fd419c1104536240861edd10af6097c4e5',
+        '0x054bc7fb7e875e6574c5eaf298c7946652614c2888d1c17972901dffab1e578c']
     }
   },
   created() {
@@ -83,11 +85,16 @@ export default {
               status: res[5],
             }
             // console.log(res[5])
+            let index = 0
             if (demand.status[0] > 1) {
               //已被捐赠
               console.log(demand)
+              demand.demandName = res[1]
+              demand.username = "捐助者" + i
+              demand.hash = this.hash[index++];
               this.donatedData.push(demand)
-            } else {
+              //暂时判断 过滤
+            } else if (demand.username == "杭电信工") {
               //正在投票或等待捐赠
               this.demandData.push(demand)
             }
@@ -103,6 +110,11 @@ export default {
     DemDetail(item) {
       this.dialogFormVisible = true
       this.demand = item
+      console.log(item)
+    },
+    DonDetail(item) {
+      this.dialogFormVisible = true
+      this.donate = item
       console.log(item)
     },
     sureDialog() {

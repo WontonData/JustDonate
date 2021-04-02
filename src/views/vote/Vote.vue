@@ -156,12 +156,12 @@ export default {
     },
 
     agree(item) {
-      this.contractVote.agree(item.id[0]).
+      this.contractVote.agree(this.vote.id[0]).
       sendTransaction({
         from: this.account
       }).then(res => {
         console.log(res)
-        this.dialogFormVisible = false
+        this.dialogVote = false
         this.$message({
           message: '支持成功！',
           type: 'success'
@@ -177,12 +177,12 @@ export default {
     },
 
     against(item) {
-      this.contractVote.against(item.id[0]).
+      this.contractVote.against(this.vote.id[0]).
       sendTransaction({
         from: this.account
       }).then(res => {
         console.log(res)
-        this.dialogFormVisible = false
+        this.dialogVote = false
         this.$message({
           message: '反对成功！',
           type: 'success'

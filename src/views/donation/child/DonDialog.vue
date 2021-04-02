@@ -2,7 +2,7 @@
   <div>
     <el-form :model="form" label-suffix=":">
       <el-form-item label="捐助人" :label-width="formLabelWidth" >
-        <span>{{ form.name }}</span>
+        <span>{{ form.username }}</span>
       </el-form-item>
       <el-form-item label="捐助人地址" :label-width="formLabelWidth">
         <span>{{ form.sender }}</span>
