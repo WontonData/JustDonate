@@ -7,7 +7,7 @@
     <h4>Agent version: {{ agentVersion }}</h4>
     <br>
     <h2>上传文件</h2>
-    <input type="file" class="add" @change="saveToIpfs"><br>
+    <input type="file" class="add" accept="image/gif,image/jpeg,image/jpg,image/png" @change="saveToIpfs"><br>
     <a v-show="hashCode" class="hash-link" :href="'https://ipfs.io/ipfs/'+hashCode">
       文件哈希值为：{{hashCode}}
     </a>
