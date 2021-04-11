@@ -29,11 +29,11 @@
           @approve="approve"
           @against="against"
           @agree="agree"
-          :form="vote"
           :is-agree="isAgree"
           :agrees="agrees"
           :againsts="againsts"
       />
+<!--      :form="vote"-->
     </el-dialog>
 
   </div>
@@ -155,7 +155,7 @@ export default {
       // })
     },
 
-    agree(item) {
+    agree() {
       this.contractVote.agree(this.vote.id[0]).
       sendTransaction({
         from: this.account
@@ -176,7 +176,7 @@ export default {
 
     },
 
-    against(item) {
+    against() {
       this.contractVote.against(this.vote.id[0]).
       sendTransaction({
         from: this.account

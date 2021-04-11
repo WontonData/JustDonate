@@ -51,6 +51,7 @@ export default {
         });
 
         // 获取上传文件hash值
+        //文件哈希值为：QmURij53hkzpaVvLwfr8EFLKS69xnE7augU4GcP3pYYKmc
         this.hashCode = added.cid.toString();
 
       } catch (err) {

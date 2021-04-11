@@ -16,6 +16,13 @@ Vue.config.productionTip = false
 store.dispatch("init");
 // store.dispatch("getAccount");
 
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
+})
+
 Vue.use(VCharts)
 Vue.use(ElementUI);
 Vue.use(VueIpfs);

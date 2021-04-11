@@ -31,9 +31,9 @@ export default new Vuex.Store({
       state.account = portal.getAccount();
       // state.balance = portal.refreshBalance();
     },
-    initAccount(state) {
-      state.account = portal.getAccount();
-    }
+    // initAccount(state) {
+    //   state.account = portal.getAccount();
+    // }
   },
   actions: {
     init({commit}) {
@@ -43,13 +43,13 @@ export default new Vuex.Store({
         console.error(err);
       });
     },
-    getAccount({commit}) {
-      portal.enable().then(() => {
-        commit("initAccount");
-      }).catch(err => {
-        console.error(err);
-      });
-    }
+    // getAccount({commit}) {
+    //   portal.enable().then(() => {
+    //     commit("initAccount");
+    //   }).catch(err => {
+    //     console.error(err);
+    //   });
+    // }
   },
   modules: {}
 });

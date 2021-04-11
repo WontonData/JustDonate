@@ -15,7 +15,6 @@ import IpfsInfo from "./views/ipfs/IpfsInfo";
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
@@ -32,28 +31,44 @@ export default new Router({
         },
         {
           path: '/data',
-          component: Data
+          component: Data,
+          meta: {
+            title: "数据中心"
+          },
         },
         {
           path: '/donation',
           component: Donation,
+          meta: {
+            title: "捐赠动态"
+          },
 
         },
         {
           path: '/demand',
           component: Demand,
+          meta: {
+            title: "需求动态"
+          },
         },
         {
           path: '/vote',
           component: Vote,
+          meta: {
+            title: "投票表决"
+          },
         },
         {
           path: '/about',
-          component: About
+          component: About,
+          meta: {
+            title: "关于我们"
+          },
         },
         {
           path: '/upload',
-          component: IpfsInfo
+          component: IpfsInfo,
+
         }
       ]
     },
@@ -67,13 +82,20 @@ export default new Router({
         },
         {
           path: '/perfile/donation',
-          component: PerDon
+          component: PerDon,
+          meta: {
+            title: "我的捐赠"
+          },
         },
         {
           path: '/perfile/demand',
-          component: PerDem
+          component: PerDem,
+          meta: {
+            title: "我的需求"
+          },
         },
       ]
     }
   ]
 })
+

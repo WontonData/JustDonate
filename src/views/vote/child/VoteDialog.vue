@@ -60,13 +60,13 @@ export default {
   },
   methods: {
     approve() {
-      this.$emit("approve", this.form)
+      this.$emit("approve")
     },
     against() {
-      this.$emit("against", this.form)
+      this.$emit("against")
     },
     agree() {
-      this.$emit("agree", this.form)
+      this.$emit("agree")
     }
   }
 }
