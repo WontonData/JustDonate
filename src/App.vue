@@ -17,7 +17,9 @@ import store from "@/store";
 
 export default {
   name: "App",
-  components: {Nav},
+  components: {
+      Nav
+  },
   computed: {
     ...mapState(["currentUser", "contract", "contractTow", "balance", "account"])
   },

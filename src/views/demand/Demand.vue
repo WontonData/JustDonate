@@ -2,7 +2,7 @@
   <div class="box-dem">
     <el-row>
       <el-col :span="4">
-        <h2>实施需求发布</h2>
+        <h2>实时需求发布</h2>
       </el-col>
       <el-col :span="4" :offset="16">
         <el-input placeholder="搜索需求方名称" v-model="search" class="input-with-select">

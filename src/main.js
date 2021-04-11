@@ -7,6 +7,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import 'normalize.css/normalize.css'
 import VDistpicker from 'v-distpicker'
+import VueIpfs from './plugins/vue-ipfs';
 
 Vue.component('v-distpicker', VDistpicker)
 
@@ -17,6 +18,7 @@ store.dispatch("init");
 
 Vue.use(VCharts)
 Vue.use(ElementUI);
+Vue.use(VueIpfs);
 
 new Vue({
   router,

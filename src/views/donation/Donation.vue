@@ -2,7 +2,7 @@
   <div class="box-don">
     <el-row>
       <el-col :span="4">
-        <h2>实施捐赠动态</h2>
+        <h2>实时捐赠动态</h2>
       </el-col>
       <el-col :span="4" :offset="16">
         <el-input placeholder="搜索捐赠方名称" v-model="search" class="input-with-select">

@@ -9,6 +9,8 @@ import Perfile from "@/views/perfile/Perfile";
 import PerDon from "@/views/perfile/child/PerDon";
 import PerDem from "@/views/perfile/child/PerDem";
 import Vote from "@/views/vote/Vote";
+import IpfsInfo from "./views/ipfs/IpfsInfo";
+
 
 Vue.use(Router)
 
@@ -49,6 +51,10 @@ export default new Router({
           path: '/about',
           component: About
         },
+        {
+          path: '/upload',
+          component: IpfsInfo
+        }
       ]
     },
     {
