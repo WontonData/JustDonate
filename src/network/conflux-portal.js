@@ -23,7 +23,7 @@ class ConfluxPortal {
   async init() {
     // const account = conflux.Account(accounts);
     // console.log(account)
-    this.accounts = await this.conflux.enable()
+    this.accounts = await this.conflux.enable();
 
     //投票
     this.contractVote = window.confluxJS.Contract({
@@ -46,11 +46,11 @@ class ConfluxPortal {
     console.log("Conflux portal enable success!");
   }
 
-  async enable () {
-    this.accounts = await this.conflux.enable()
-    console.log(this.accounts);
-
-  }
+  // async enable () {
+  //   this.accounts = await this.conflux.enable()
+  //   console.log(this.accounts);
+  //
+  // }
 
   //获取账户
   getAccount() {
