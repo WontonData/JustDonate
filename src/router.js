@@ -15,6 +15,10 @@ import IpfsInfo from "./views/ipfs/IpfsInfo";
 Vue.use(Router)
 
 export default new Router({
+// <<<<<<< HEAD
+// =======
+  mode: 'hash',
+// >>>>>>> 167e3b4a94c037e81c556cb6c24d14a22239213f
   base: process.env.BASE_URL,
   routes: [
     {
