@@ -59,10 +59,6 @@ export default {
   },
   methods: {
     init() {
-<<<<<<< HEAD
-=======
-
->>>>>>> a02ec73ed95616fd92f40251a2fb3f4d4c3419c5
       for (let i = 0; i < 15; i++) {
         this.contractCharityFactory.charities(i).then(res => {
           let Charity = window.confluxJS.Contract({
@@ -112,7 +108,6 @@ export default {
       // this.reload();
     },
     sureDemand(item) {
-<<<<<<< HEAD
       console.log(item)
       let Charity = window.confluxJS.Contract({
         address: this.demand.address,
@@ -122,13 +117,6 @@ export default {
       Charity.Donate(
           item.helper,
           item.img,
-=======
-      this.contractCharityFactory.createDonate(
-          this.demand.id,
-          item.username,
-          item.content,
-          item.image,
->>>>>>> a02ec73ed95616fd92f40251a2fb3f4d4c3419c5
           item.address,
           item.express,
       ).sendTransaction({
