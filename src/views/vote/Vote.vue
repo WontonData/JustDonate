@@ -92,12 +92,22 @@ export default {
                 approve: 0,
                 against: 0,
               }
+<<<<<<< HEAD
               //获取赞同/反对数
               // this.contractVote.getVotesCount(res[0]).then(res => {
               //   console.log(res)
               //   res[0][0] >= 0? demand.approve = res[0][0]:demand.approve = 0
               //   res[1][0] >= 0? demand.against = res[1][0]:demand.against = 0
               // })
+=======
+
+              this.contractVote.getVotesCount(res[0]).then(res => {
+                console.log(res)
+                res[0][0] >= 0? demand.approve = res[0][0]:demand.approve = 0
+                res[1][0] >= 0? demand.against = res[1][0]:demand.against = 0
+              })
+
+>>>>>>> a02ec73ed95616fd92f40251a2fb3f4d4c3419c5
               this.demandData.push(demand)
             }
             //0初始 1通过 2捐赠中 3捐赠完成 9失败
@@ -166,6 +176,7 @@ export default {
     },
 
     agree() {
+      console.log(this.contractVote)
       this.contractVote.agree(this.vote.id[0]).
       sendTransaction({
         from: this.account

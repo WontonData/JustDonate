@@ -44,22 +44,22 @@ export default {
         console.log('reload')
       })
     },
-    clickText() {
-      console.log(conflux)
-      let result
-      this.contract.num_tickets().then(result => {
-        console.log(result);
-      }).catch(err => {
-        console.error(err);
-      });
+      clickText: function () {
+          console.log(conflux)
+          let result
+          this.contract.num_tickets().then(result => {
+              console.log(result);
+          }).catch(err => {
+              console.error(err);
+          });
 
-      conflux.getBalance("0x1c1e72f0c37968557b3d85a3f32747792798bbde").then(res => {
-      // conflux.getBalance(util.format.hexAddress("cfxtest:aasb661u2r60uzn5h0c4h63hj76wtgf552r9ghu7a4")).then(res => {
-        console.log(res)
-      }).catch(err => {
-        console.log(err)
-      })
-    }
+          conflux.getBalance("0x1c1e72f0c37968557b3d85a3f32747792798bbde").then(res => {
+              // conflux.getBalance(util.format.hexAddress("cfxtest:aasb661u2r60uzn5h0c4h63hj76wtgf552r9ghu7a4")).then(res => {
+              console.log(res)
+          }).catch(err => {
+              console.log(err)
+          })
+      }
   }
 };
 </script>

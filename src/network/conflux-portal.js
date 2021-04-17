@@ -23,11 +23,12 @@ class ConfluxPortal {
   async init() {
     // const account = conflux.Account(accounts);
     // console.log(account)
-    this.accounts = await this.conflux.enable();
+    this.accounts = await this.conflux.enable()
 
     //投票
     this.contractVote = window.confluxJS.Contract({
-      address: "cfxtest:type.contract:acb30f0zy83vaxew8tyraj2c1g92yfmpneunkdxmb5",
+      // address: "cfxtest:type.contract:acb30f0zy83vaxew8tyraj2c1g92yfmpneunkdxmb5",
+      address: "cfxtest:type.contract:acbuadnh48p86puwg29cht1w824zdshdf6f9h6n4sn",
       abi: require("network/abiVote.json")
     });
     //捐赠
@@ -59,12 +60,10 @@ class ConfluxPortal {
   // async enable () {
   //   this.accounts = await this.conflux.enable()
   //   console.log(this.accounts);
-  //
   // }
 
   //获取账户
   getAccount() {
-
     if (!this.accounts) {
       // return null;
       throw new Error("Please enable Conflux Portal first");
