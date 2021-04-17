@@ -14,6 +14,7 @@ export default new Vuex.Store({
     contractVote: null, //portal.contract
     contractDonateFactory: null, //portal.contract
     contractDemandFactory: null, //portal.contract
+    contractCharityFactory: null, //portal.contract
     account: null, //portal.getAccount()
     balance: null, //portal.getAccount()
     // balance: null, //portal.getAccount()
@@ -28,6 +29,7 @@ export default new Vuex.Store({
       // state.contractDonateFactory = contractDonateFactory;
       state.contractDonateFactory = portal.contractDonateFactory;
       state.contractDemandFactory = portal.contractDemandFactory;
+      state.contractCharityFactory = portal.contractCharityFactory;
       state.account = portal.getAccount();
       // state.balance = portal.refreshBalance();
     },

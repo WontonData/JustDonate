@@ -40,6 +40,16 @@ class ConfluxPortal {
       address: "cfxtest:type.contract:acdarabvxm7berpv3f3ch284jng1pypkujukem1eut",
       abi: require("network/abiDemandFactory.json")
     });
+    //慈善
+    this.contractCharityFactory = window.confluxJS.Contract({
+      address: "cfxtest:type.contract:acd5g4xhzzkgeey5bha8kpswxns0ac3kk63bauugkg",
+      abi: require("network/abiCharityFactory.json")
+    });
+    //合约
+    // this.contractCharity = window.confluxJS.Contract({
+    //   address: ,
+    //   abi: require("network/abiCharity.json")
+    // });
 
     console.log(this.contractVote);
 

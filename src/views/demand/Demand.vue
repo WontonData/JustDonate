@@ -31,6 +31,7 @@
 
 <script>
 import {mapState} from "vuex";
+import conflux from "@/network/conflux";
 import DemCard from "@/views/demand/child/DemCard";
 import DemDialog from "@/views/demand/child/DemDialog";
 import InnerDialog from "@/views/demand/child/InnerDialog";
@@ -39,7 +40,7 @@ export default {
   name: "Demand",
   components: {InnerDialog, DemDialog, DemCard},
   computed: {
-    ...mapState(["contractDonateFactory", "contractDemandFactory", "account"])
+    ...mapState(["contractDonateFactory", "contractDemandFactory", "account", "contractCharityFactory"])
   },
   inject: ["reload"],
   data() {
@@ -57,23 +58,51 @@ export default {
   },
   methods: {
     init() {
-      this.contractDemandFactory.index().then(res => {
-        for (let i = 0; i < res[0]; i++) {
-          this.contractDemandFactory.demands(i).then(res => {
-            if (res[5] == 1) {
+      // this.contractDemandFactory.index().then(res => {
+      //   for (let i = 0; i < res[0]; i++) {
+      //     this.contractDemandFactory.demands(i).then(res => {
+      //       if (res[5] == 1) {
+      //         let demand = {
+      //           id: res[0],
+      //           username: res[1],
+      //           sender: res[2],
+      //           content: res[3],
+      //           contact: res[4],
+      //           status: res[5],
+      //         }
+      //         // this.demandData.push(demand)
+      //       }
+      //     })
+      //   }
+      // })
+      for (let i = 0; i < 6; i++) {
+        this.contractCharityFactory.charities(i).then(res => {
+          let Charity = window.confluxJS.Contract({
+            address: res,
+            abi: require("network/abiCharity.json")
+          });
+          Charity.Info().then(res => {
+            console.log(res)
+            if (res[12] == 1) {
               let demand = {
                 id: res[0],
-                username: res[1],
-                sender: res[2],
-                content: res[3],
-                contact: res[4],
-                status: res[5],
+                sender: res[1],
+                username: res[3],
+                content: res[5],
+                contact: res[6],
+                img0: res[7],
+                img1: res[8],
+                location0: res[9],
+                status: res[12],
               }
               this.demandData.push(demand)
             }
+            //0初始 1通过 2捐赠中 3捐赠完成 9失败
+          }).catch(err => {
+            console.log(err);
           })
-        }
-      })
+        })
+      }
     },
     DemDetail(item) {
       this.dialogFormVisible = true

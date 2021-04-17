@@ -18,7 +18,7 @@
             :colors="colors"
             class="map"
             :settings="chartSettings"
-            height='1100px' width='100%'
+            height='750px' width='78%'
             style=''
             :legend-visible='false'></ve-map>
   </div>
@@ -53,7 +53,7 @@ export default {
       },
       label: {    //文本设置
         show: true,
-        fontSize: 13,
+        fontSize: 10,
         fontWeight: 300,
         color: '#9498AC'
       },
@@ -150,12 +150,13 @@ export default {
   margin: 0 auto;
 }
 span {
-  line-height: 67px;
+  line-height: 50px;
   color: dimgray;
 }
 
 .map {
-  margin-top:-100px;
+  /*margin-top:;*/
+  margin: -40px auto 0;
   /*z-index: -1;*/
 }
 h2 {
