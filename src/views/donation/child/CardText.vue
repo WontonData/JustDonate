@@ -7,13 +7,13 @@
       </div>
       <div class="right">
         <p>{{ item.username }}</p>
-        <p style="margin-top: 1rem ">{{ item.demandName }}</p>
+        <p style="margin-top: 1rem ">{{ item.helperName }}</p>
       </div>
     </div>
     <span class="wuzi">
       交易哈希:
       <a target="_blank"
-         :href="`https://testnet.confluxscan.io/transaction/${item.hash}`">
+         :href="`https://testnet.confluxscan.io/address/${item.hash}`">
         {{ hsahSub }}
       </a>
     </span><br/>

@@ -51,7 +51,7 @@ export default {
   name: "Vote",
   components: {DemDialog, VoteDialog, VoteCard, DemCard},
   computed: {
-    ...mapState(["currentUser", "contractVote", "contractDemandFactory", "account"])
+    ...mapState(["currentUser", "contractVote", "contractDemandFactory", "account", "contractCharityFactory"])
   },
   data() {
     return {
@@ -70,34 +70,42 @@ export default {
   },
   methods: {
     init() {
-      this.contractDemandFactory.index().then(res => {
-        for (let i = 0; i < res[0]; i++) {
-          this.contractDemandFactory.demands(i).then(res => {
-            // console.log(res[0])
-            if (res[5] == 0) {
+      for (let i = 0; i < 6; i++) {
+        this.contractCharityFactory.charities(i).then(res => {
+          let Charity = window.confluxJS.Contract({
+            address: res,
+            abi: require("network/abiCharity.json")
+          });
+          Charity.Info().then(res => {
+            console.log(res)
+            if (res[12] == 0) {
               let demand = {
                 id: res[0],
-                username: res[1],
-                sender: res[2],
-                content: res[3],
-                contact: res[4],
-                status: res[5],
+                sender: res[1],
+                username: res[3],
+                content: res[5],
+                contact: res[6],
+                img0: res[7],
+                img1: res[8],
+                location0: res[9],
+                status: res[12],
                 approve: 0,
                 against: 0,
               }
-              this.contractVote.getVotesCount(res[0]).then(res => {
-                console.log(res)
-                res[0][0] >= 0? demand.approve = res[0][0]:demand.approve = 0
-                res[1][0] >= 0? demand.against = res[1][0]:demand.against = 0
-
-              }).catch(err => {
-                console.log(err)
-              })
+              // this.contractVote.getVotesCount(res[0]).then(res => {
+              //   console.log(res)
+              //   res[0][0] >= 0? demand.approve = res[0][0]:demand.approve = 0
+              //   res[1][0] >= 0? demand.against = res[1][0]:demand.against = 0
+              // })
               this.demandData.push(demand)
             }
+            //0初始 1通过 2捐赠中 3捐赠完成 9失败
+          }).catch(err => {
+            console.log(err);
           })
-        }
-      })
+        })
+      }
+
     },
 
     getAllVoters() {

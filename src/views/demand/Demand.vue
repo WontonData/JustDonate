@@ -58,23 +58,7 @@ export default {
   },
   methods: {
     init() {
-      // this.contractDemandFactory.index().then(res => {
-      //   for (let i = 0; i < res[0]; i++) {
-      //     this.contractDemandFactory.demands(i).then(res => {
-      //       if (res[5] == 1) {
-      //         let demand = {
-      //           id: res[0],
-      //           username: res[1],
-      //           sender: res[2],
-      //           content: res[3],
-      //           contact: res[4],
-      //           status: res[5],
-      //         }
-      //         // this.demandData.push(demand)
-      //       }
-      //     })
-      //   }
-      // })
+
       for (let i = 0; i < 6; i++) {
         this.contractCharityFactory.charities(i).then(res => {
           let Charity = window.confluxJS.Contract({
@@ -122,7 +106,7 @@ export default {
     },
     sureDemand(item) {
 
-      this.contractDonateFactory.createDonate(
+      this.contractCharityFactory.createDonate(
           this.demand.id,
           item.username,
           item.content,

@@ -26,13 +26,14 @@ import DonCard from "@/views/donation/child/DonCard";
 import DonDialog from "@/views/donation/child/DonDialog";
 import {mapState} from "vuex";
 import {DonateFactory} from "@/network/conflux";
+
 const util = require('js-conflux-sdk/src/util');
 
 export default {
   name: "Donation",
   components: {DonDialog, DonCard},
   computed: {
-    ...mapState([ "contractDemandFactory", "contractDonateFactory"])
+    ...mapState(["contractDonateFactory", "contractDemandFactory", "account", "contractCharityFactory"])
   },
   mounted() {
     this.init()
@@ -45,45 +46,46 @@ export default {
       dialogFormVisible: false,
       innerVisible: false,
       hash: ['0x3757a1fbe8be8b3a20a32caa3e5bc0fd419c1104536240861edd10af6097c4e5',
-              '0x054bc7fb7e875e6574c5eaf298c7946652614c2888d1c17972901dffab1e578c']
+        '0x054bc7fb7e875e6574c5eaf298c7946652614c2888d1c17972901dffab1e578c']
     }
   },
   methods: {
     init() {
-      this.contractDonateFactory.index().then(res => {
-        console.log(res)
-        for (let i = 0; i < res[0]; i++) {
-          this.contractDonateFactory.donates(i).then(res => {
+      for (let i = 0; i < 6; i++) {
+        this.contractCharityFactory.charities(i).then(res => {
+          let Charity = window.confluxJS.Contract({
+            address: res,
+            abi: require("network/abiCharity.json")
+          });
+          let donate = {
+            hash: res
+          }
+          Charity.Info().then(res => {
             console.log(res)
-            let donate = {
-              id: res[0],
-              id2: res[1],
-              username: res[2],
-              sender: res[3],
-              content: res[4],
-              image: res[5],
-              address: res[6],
-              courier: res[7],
-              status: res[8],
-              hash: this.hash[i]
-            }
-
-            this.contractDemandFactory.demands(res[1]).then(res => {
-              donate.demandName = res[1];
+            if (res[12] == 2 || res[12] == 3) {
+              // donate = {
+              donate.id = res[0]
+              donate.sender = res[1]
+              donate.helper = res[2]
+              donate.username = res[3]
+              donate.helperName = res[4]
+              donate.content = res[5]
+              donate.contact = res[6]
+              donate.img0 = res[7]
+              donate.img1 = res[8]
+              donate.location0 = res[9]
+              donate.location1 = res[10]//捐助者 位置地区
+              donate.express = res[11]
+              donate.status = res[12]
+              // }
               this.donationData.push(donate)
-
-            }).catch(err => {
-              console.log(err)
-            })
-            // }
-            console.log(donate)
+            }
+            //0初始 1通过 2捐赠中 3捐赠完成 9失败
           }).catch(err => {
-            console.log(err)
+            console.log(err);
           })
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+        })
+      }
     },
     DonDetail(item) {
       this.dialogFormVisible = true

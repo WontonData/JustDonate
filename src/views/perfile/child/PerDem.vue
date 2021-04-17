@@ -52,7 +52,7 @@ export default {
   name: "PerDem",
   components: {DonCard, DemDialog, DemCard, PerDonDialog},
   computed: {
-    ...mapState(["currentUser", "contractDemandFactory", "account"])
+    ...mapState(["currentUser", "contractDemandFactory", "account", "contractCharityFactory"])
   },
   data() {
     return {
@@ -72,41 +72,56 @@ export default {
   },
   methods: {
     init() {
-      let index = 0
-      this.contractDemandFactory.index().then(res => {
-        // let res = DemandFactory.index().call().then(res => {
-        for (let i = 0; i < res.toString(); i++) {
-          this.contractDemandFactory.demands(i).then(res => {
-            let demand = {
-              id: res[0],
-              username: res[1],
-              sender: res[2],
-              content: res[3],
-              contact: res[4],
-              status: res[5],
-            }
-            // console.log(res[5])
-            if (demand.status[0] > 1) {
-              //已被捐赠
-              console.log(demand)
-              demand.demandName = res[1]
-              demand.username = "捐助者" + i
-              demand.hash = this.hash[index];
-              index = index + 1;
-              this.donatedData.push(demand)
-              //暂时判断 过滤
-            } else if (demand.username == "杭电信工") {
-              //正在投票或等待捐赠
+      for (let i = 0; i < 6; i++) {
+        this.contractCharityFactory.charities(i).then(res => {
+          let Charity = window.confluxJS.Contract({
+            address: res,
+            abi: require("network/abiCharity.json")
+          });
+          let donate = {
+            hash: res
+          }
+          Charity.Info().then(res => {
+            console.log(res)
+            if (res[12] == 1 || res[12] == 0) {
+              let demand = {
+                id: res[0],
+                sender: res[1],
+                username: res[3],
+                content: res[5],
+                contact: res[6],
+                img0: res[7],
+                img1: res[8],
+                location0: res[9],
+                status: res[12],
+              }
               this.demandData.push(demand)
             }
-            // }
+            if (res[12] == 2 || res[12] == 3) {
+              // donate = {
+              donate.id = res[0]
+              donate.sender = res[1]
+              donate.helper = res[2]
+              donate.username = res[3]
+              donate.helperName = res[4]
+              donate.content = res[5]
+              donate.contact = res[6]
+              donate.img0 = res[7]
+              donate.img1 = res[8]
+              donate.location0 = res[9]
+              donate.location1 = res[10]//捐助者 位置地区
+              donate.express = res[11]
+              donate.status = res[12]
+              // }
+              this.donatedData.push(donate)
+            }
+            //0初始 1通过 2捐赠中 3捐赠完成 9失败
           }).catch(err => {
-            console.log(err)
+            console.log(err);
           })
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+        })
+
+      }
     },
     DemDetail(item) {
       this.dialogFormVisible = true
@@ -123,10 +138,12 @@ export default {
     },
     releaseDialog(item) {
       console.log(item)
-      this.contractDemandFactory.createDemand(
+      this.contractCharityFactory.deployer(
           item.username,
           item.content,
-          item.contact
+          item.contact,
+          item.address,
+          item.img0,
       ).sendTransaction({
         from: this.account
       }).confirmed().then((res) => {
@@ -138,8 +155,9 @@ export default {
           type: 'success'
         });
         this.dialogRelease = false
-        this.reload() // 调用方法
-        this.init()
+        this.demandData.push(item)
+        // this.reload() // 调用方法
+        // this.init()
       }).catch(err => {
         console.log(err)
         this.$message({

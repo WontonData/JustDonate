@@ -7,15 +7,22 @@
       <el-form-item label="需求物资" :label-width="formLabelWidth" prop="supplies">
         <span>{{ form.content }}</span>
       </el-form-item>
-      <el-form-item label="联系人地址" :label-width="formLabelWidth" prop="contact">
+      <el-form-item label="发起人地址" :label-width="formLabelWidth" prop="contact">
         <span>{{ form.sender }}</span>
       </el-form-item>
       <el-form-item v-show="unVote" label="联系方式" :label-width="formLabelWidth" prop="phone">
         <span>{{ form.contact }}</span>
       </el-form-item>
-      <el-form-item label="需求原因" :label-width="formLabelWidth" prop="address">
+      <el-form-item label="需求凭证" :label-width="formLabelWidth" prop="address">
 <!--        <span>{{ form.reason }}</span>-->
-        <span>原因</span>
+        <el-image v-show="form.img0"
+                  class="hash-link"
+                  style="width: 70%; height: 60px"
+                  fit="cover"
+                  :src="'https://ipfs.io/ipfs/'+form.img0"
+                  :preview-src-list="['https://ipfs.io/ipfs/'+form.img0]"
+                  :z-index="9999">
+        </el-image>
       </el-form-item>
 <!--      <el-form-item label="详细地址" :label-width="formLabelWidth" prop="addressDetaile">-->
 <!--        <span>{{ form.addressDetaile }}</span>-->
@@ -34,7 +41,7 @@ export default {
   name: "DemDialog",
   data() {
     return {
-      formLabelWidth: "120px"
+      formLabelWidth: "120px",
     }
   },
   props: {

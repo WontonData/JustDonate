@@ -141,11 +141,11 @@ ul {
 }
 
 .card__info .info-player__num {
-  width: 40px;
-  height: 40px;
-  line-height: 30px;
+  width: 35px;
+  height: 35px;
+  line-height: 25px;
   padding: 0.55rem;
-  margin: 0 0.75rem 0 0;
+  margin: 0 0.55rem 0 0;
   text-align: center;
   overflow: hidden;
   -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
@@ -154,7 +154,7 @@ ul {
 
 .card__info .info-player__name {
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.25;
   font-size: 24px;
   margin: 0;
 }

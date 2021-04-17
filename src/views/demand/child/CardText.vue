@@ -14,8 +14,8 @@
     <p class="wuzi"><b>发起人地址:</b>
       {{ senderSub }}
     </p>
-    <p class="wuzi"><b>需求原因:</b>
-      {{ reasonSub }}
+    <p class="wuzi"><b>需求地址:</b>
+      {{ item.location0 }}
     </p>
 <!--    <p class="wuzi"><b>联系方式:</b>-->
 <!--      {{ item.contact }}-->
