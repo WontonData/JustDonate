@@ -24,7 +24,9 @@
                   class="hash-link"
                   style="width: 70%; height: 60px"
                   fit="cover"
-                  :src="'https://ipfs.io/ipfs/'+hashCode">
+                  :src="'https://ipfs.io/ipfs/'+hashCode"
+                  :preview-src-list="['https://ipfs.io/ipfs/'+hashCode]"
+                  :z-index="9999">
         </el-image>
       </el-form-item>
     </el-form>
@@ -115,11 +117,8 @@ export default {
 .dialog-footer {
   text-align: right;
 }
-
-.upload {
-
-}
-
+</style>
+<style>
 .upload {
   position: relative;
   display: inline-block;

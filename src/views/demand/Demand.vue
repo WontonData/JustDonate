@@ -11,9 +11,10 @@
       </el-col>
     </el-row>
 
-    <el-row :gutter="50" >
-      <dem-card :cardData="demandData.filter(data => !search || data.username.toLowerCase().includes(search.toLowerCase()))"
-                @DemDetail="DemDetail"/>
+    <el-row :gutter="50">
+      <dem-card
+          :cardData="demandData.filter(data => !search || data.username.toLowerCase().includes(search.toLowerCase()))"
+          @DemDetail="DemDetail"/>
     </el-row>
 
     <el-dialog title="物资需求详情" :visible.sync="dialogFormVisible">
@@ -22,7 +23,7 @@
           title="捐助者信息"
           :visible.sync="innerVisible"
           append-to-body>
-        <inner-dialog @sureDemand="sureDemand" />
+        <inner-dialog @sureDemand="sureDemand"/>
       </el-dialog>
       <dem-dialog @sureDialog="sureDialog" :form="demand"/>
     </el-dialog>
@@ -46,10 +47,10 @@ export default {
   data() {
     return {
       search: '',
-      formLabelWidth:'120px',
+      formLabelWidth: '120px',
       dialogFormVisible: false,
       demandData: [],
-      demand :{},
+      demand: {},
       innerVisible: false
     }
   },
@@ -58,27 +59,29 @@ export default {
   },
   methods: {
     init() {
-
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 15; i++) {
         this.contractCharityFactory.charities(i).then(res => {
           let Charity = window.confluxJS.Contract({
             address: res,
             abi: require("network/abiCharity.json")
           });
+          let demand = {
+            address: res,
+          }
           Charity.Info().then(res => {
             console.log(res)
             if (res[12] == 1) {
-              let demand = {
-                id: res[0],
-                sender: res[1],
-                username: res[3],
-                content: res[5],
-                contact: res[6],
-                img0: res[7],
-                img1: res[8],
-                location0: res[9],
-                status: res[12],
-              }
+              // let demand = {
+              demand.id = res[0]
+              demand.sender = res[1]
+              demand.username = res[3]
+              demand.content = res[5]
+              demand.contact = res[6]
+              demand.img0 = res[7]
+              demand.img1 = res[8]
+              demand.location0 = res[9]
+              demand.status = res[12]
+              // }
               this.demandData.push(demand)
             }
             //0初始 1通过 2捐赠中 3捐赠完成 9失败
@@ -105,16 +108,18 @@ export default {
       // this.reload();
     },
     sureDemand(item) {
-
-      this.contractCharityFactory.createDonate(
-          this.demand.id,
-          item.username,
-          item.content,
-          item.image,
+      console.log(item)
+      let Charity = window.confluxJS.Contract({
+        address: this.demand.address,
+        abi: require("network/abiCharity.json")
+      });
+      console.log(Charity)
+      Charity.Donate(
+          item.helper,
+          item.img,
           item.address,
-          item.courier,
-      ).
-      sendTransaction({
+          item.express,
+      ).sendTransaction({
         from: this.account
       }).then(res => {
         console.log(res)
@@ -124,6 +129,7 @@ export default {
           message: '捐助成功！',
           type: 'success'
         });
+        this.demand.status = 2;
       }).catch(err => {
         console.log(err)
         this.$message({
@@ -142,6 +148,7 @@ export default {
   width: 96%;
   margin: 0 auto;
 }
+
 h2 {
   color: #1e2947;
 }

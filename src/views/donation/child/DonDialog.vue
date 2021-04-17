@@ -2,22 +2,22 @@
   <div>
     <el-form :model="form" label-suffix=":">
       <el-form-item label="捐助人" :label-width="formLabelWidth" >
-        <span>{{ form.username }}</span>
+        <span>{{ form.helper }}</span>
       </el-form-item>
       <el-form-item label="捐助人地址" :label-width="formLabelWidth">
         <span>{{ form.sender }}</span>
       </el-form-item>
       <el-form-item label="需求机构" :label-width="formLabelWidth">
-        <span>{{ form.demandName }}</span>
+        <span>{{ form.username }}</span>
       </el-form-item>
       <el-form-item label="捐赠物资" :label-width="formLabelWidth">
         <span>{{ form.content }}</span>
       </el-form-item>
       <el-form-item label="捐助地址" :label-width="formLabelWidth" >
-        <span>{{ form.address }}</span>
+        <span>{{ form.location0 }}</span>
       </el-form-item>
-      <el-form-item label="运输" :label-width="formLabelWidth">
-        <span>{{ form.courier }}</span>
+      <el-form-item label="运输单号" :label-width="formLabelWidth">
+        <span>{{ form.express }}</span>
       </el-form-item>
     </el-form>
     <div slot="footer" class="dialog-footer">

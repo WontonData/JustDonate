@@ -5,6 +5,7 @@
         <el-card :body-style="{ padding: '0 0 10px 0', background: '#f2f5ff'}" >
           <div class="mask" >
             <p @click="DonDetail(item)">03-21 18:40<br/>已在区块链存证</p>
+<!--            <el-image :src="'https://ipfs.io/ipfs/'+item.img0"-->
             <el-image :src=src[index%6]
                       fit="cover"
                       style="height: 200px"

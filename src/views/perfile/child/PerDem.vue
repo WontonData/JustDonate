@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     init() {
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 15; i++) {
         this.contractCharityFactory.charities(i).then(res => {
           let Charity = window.confluxJS.Contract({
             address: res,
@@ -148,14 +148,23 @@ export default {
         from: this.account
       }).confirmed().then((res) => {
         console.log(res)
-        //transactionHash "0x63985a5e71552c883a9b32eae440122fa857e92155da272e57a4c930d2ead97a"
-        //0x900a39cafa39091051cfc792a40166f9b26ad4cad3b8685a72aedf282ead11f5
         this.$message({
           message: '发布成功！',
           type: 'success'
         });
         this.dialogRelease = false
-        this.demandData.push(item)
+        let demand = {
+          id: "",
+          sender: this.account[0],
+          username: item.username,
+          content: item.content,
+          contact: item.contact,
+          img0: item.img0,
+          img1: item.img0,
+          location0: item.address,
+          status: 0,
+        }
+        this.demandData.push(demand)
         // this.reload() // 调用方法
         // this.init()
       }).catch(err => {
@@ -205,14 +214,15 @@ h2 {
 <style>
 .el-radio-button__inner:hover {
   /*color: #7F95D1;*/
-  color: #8b9dd5;
+  color: #8b9dd5!important;
 }
 
 .el-radio-button__orig-radio:checked .el-radio-button__inner {
   color: #FFF;
-  background-color: #8b9dd5;
-  border-color: #8b9dd5;
-  -webkit-box-shadow: -1px 0 0 0 #8b9dd5;
-  box-shadow: -1px 0 0 0 #8b9dd5;
+  background-color: #8b9dd5!important;
+  border-color: #8b9dd5!important;
+  -webkit-box-shadow: -1px 0 0 0 #8b9dd5!important;
+  box-shadow: -1px 0 0 0 #8b9dd5!important;
 }
+
 </style>
