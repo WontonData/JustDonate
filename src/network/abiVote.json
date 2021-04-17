@@ -8,7 +8,7 @@
       },
       {
         "internalType": "address",
-        "name": "demandFactoryAddress",
+        "name": "charityFactoryAddress",
         "type": "address",
         "networkId": 1
       }
@@ -42,6 +42,27 @@
       }
     ],
     "name": "Approval",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address",
+        "networkId": 1
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address",
+        "networkId": 1
+      }
+    ],
+    "name": "OwnershipTransferred",
     "type": "event"
   },
   {
@@ -120,7 +141,7 @@
         "type": "uint256"
       }
     ],
-    "name": "addAggree",
+    "name": "addAgree",
     "type": "event"
   },
   {
@@ -285,6 +306,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "failVoteNum",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -342,6 +376,33 @@
         "internalType": "string",
         "name": "",
         "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address payable",
+        "name": "",
+        "type": "address",
+        "networkId": 1
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "passVoteNum",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
       }
     ],
     "stateMutability": "view",
@@ -432,6 +493,20 @@
   {
     "inputs": [
       {
+        "internalType": "address payable",
+        "name": "newOwner",
+        "type": "address",
+        "networkId": 1
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
@@ -456,7 +531,7 @@
         "type": "uint256"
       }
     ],
-    "name": "votes_aggree",
+    "name": "votes_agree",
     "outputs": [
       {
         "internalType": "uint256",
@@ -475,12 +550,51 @@
         "type": "uint256"
       }
     ],
+    "name": "getCharity",
+    "outputs": [
+      {
+        "internalType": "contract Charity",
+        "name": "charity",
+        "type": "address",
+        "networkId": 1
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
+    ],
     "name": "getVoteStatus",
     "outputs": [
       {
-        "internalType": "uint8",
+        "internalType": "uint256",
         "name": "status",
-        "type": "uint8"
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
+    ],
+    "name": "getVoteNextStatus",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "status",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -516,6 +630,59 @@
     "inputs": [
       {
         "internalType": "uint256",
+        "name": "_num",
+        "type": "uint256"
+      }
+    ],
+    "name": "updatePassVoteNum",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_num",
+        "type": "uint256"
+      }
+    ],
+    "name": "updateFailVoteNum",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "receiverAddress",
+        "type": "address",
+        "networkId": 1
+      }
+    ],
+    "name": "updateReceiver",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_num",
+        "type": "uint256"
+      }
+    ],
+    "name": "addSupply",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
         "name": "_id",
         "type": "uint256"
       }
@@ -524,7 +691,7 @@
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "aggreeNum",
+        "name": "agreeNum",
         "type": "uint256"
       },
       {
@@ -548,7 +715,7 @@
     "outputs": [
       {
         "internalType": "address[]",
-        "name": "aggree_voters",
+        "name": "agree_voters",
         "type": "address[]"
       },
       {

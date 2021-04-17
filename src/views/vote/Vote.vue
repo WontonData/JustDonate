@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     init() {
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 15; i++) {
         this.contractCharityFactory.charities(i).then(res => {
           let Charity = window.confluxJS.Contract({
             address: res,
@@ -92,11 +92,13 @@ export default {
                 approve: 0,
                 against: 0,
               }
-              // this.contractVote.getVotesCount(res[0]).then(res => {
-              //   console.log(res)
-              //   res[0][0] >= 0? demand.approve = res[0][0]:demand.approve = 0
-              //   res[1][0] >= 0? demand.against = res[1][0]:demand.against = 0
-              // })
+
+              this.contractVote.getVotesCount(res[0]).then(res => {
+                console.log(res)
+                res[0][0] >= 0? demand.approve = res[0][0]:demand.approve = 0
+                res[1][0] >= 0? demand.against = res[1][0]:demand.against = 0
+              })
+
               this.demandData.push(demand)
             }
             //0初始 1通过 2捐赠中 3捐赠完成 9失败
@@ -164,6 +166,7 @@ export default {
     },
 
     agree() {
+      console.log(this.contractVote)
       this.contractVote.agree(this.vote.id[0]).
       sendTransaction({
         from: this.account

@@ -63,8 +63,6 @@ export default {
       donatedData: [],
       oldDemandData: [],
       demand: {},
-      hash: ['0x3757a1fbe8be8b3a20a32caa3e5bc0fd419c1104536240861edd10af6097c4e5',
-        '0x054bc7fb7e875e6574c5eaf298c7946652614c2888d1c17972901dffab1e578c']
     }
   },
   created() {
@@ -72,7 +70,7 @@ export default {
   },
   methods: {
     init() {
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 15; i++) {
         this.contractCharityFactory.charities(i).then(res => {
           let Charity = window.confluxJS.Contract({
             address: res,

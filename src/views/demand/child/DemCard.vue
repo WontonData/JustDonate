@@ -64,7 +64,7 @@ export default {
 <style scoped>
 .el-card {
   margin: 0.75rem 0 0.75rem;
-  background: #f3fff4;
+  background: rgba(243, 255, 244, 0.41);
   position: relative;
 }
 .voted {
@@ -92,5 +92,6 @@ export default {
   position: absolute;
   right: 2rem;
   top: 1.5rem;
+
 }
 </style>

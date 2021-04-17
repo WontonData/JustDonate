@@ -5,7 +5,7 @@
       background-color="#7F95D1"
       text-color="#fff"
       active-text-color="#d7dcef"
-      :default-active="$route.path">
+      :default-actie="$route.path">
     <el-menu-item v-for="item in menuData" :key="item.name" :index="item.routerPath">
       <template slot="title">
         <i :class=item.icon style="color: #d7dcef" ></i>
