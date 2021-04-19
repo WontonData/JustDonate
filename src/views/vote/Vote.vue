@@ -4,10 +4,10 @@
       <el-col :span="2">
         <h2>投票表决</h2>
       </el-col>
-      <el-col :span="4" :offset="1">
-        <p style="margin-top: 25px"><i class="el-icon-coin"/> 您拥有的投票权：12</p>
+      <el-col :span="6" :offset="1">
+        <p style="margin-top: 25px"><i class="el-icon-coin"/> 您拥有的投票权：{{voteTokenBalance}}</p>
       </el-col>
-      <el-col :span="4" :offset="13">
+      <el-col :span="4" :offset="11">
         <el-input placeholder="搜索需求方名称" v-model="search" class="input-with-select">
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
@@ -63,6 +63,7 @@ export default {
       isAgree: true,
       agrees: [],
       againsts: [],
+      voteTokenBalance: 0.00,
     }
   },
   created() {
@@ -70,6 +71,7 @@ export default {
   },
   methods: {
     init() {
+      this.getVoteTokenBalance()
       this.demandData = []
       for (let i = 0; i < 15; i++) {
         this.contractCharityFactory.charities(i).then(res => {
@@ -118,6 +120,16 @@ export default {
         //赞同者地址
         this.agrees = res[0];
         this.againsts = res[1];
+      })
+    },
+
+    getVoteTokenBalance() {
+      // console.log(this.account);
+      this.contractVote.balanceOf(this.account).then(res => {
+        // console.log((res.toJSON() / 1e18).toFixed(2))
+        this.voteTokenBalance = (res.toJSON() / 1e18).toFixed(2)
+      }).catch(err => {
+        console.log(err)
       })
     },
 
