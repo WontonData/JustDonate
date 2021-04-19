@@ -14,11 +14,8 @@ import IpfsInfo from "./views/ipfs/IpfsInfo";
 
 Vue.use(Router)
 
-export default new Router({
-// <<<<<<< HEAD
-// =======
+const router = new Router({
   mode: 'hash',
-// >>>>>>> 167e3b4a94c037e81c556cb6c24d14a22239213f
   base: process.env.BASE_URL,
   routes: [
     {
@@ -103,3 +100,29 @@ export default new Router({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
+})
+// router.beforeEach((to, from, next) => {
+//   // 如果有token 说明该用户已登陆
+//   // if (localStorage.getItem('token')) {
+//   //   // 在已登陆的情况下访问登陆页会重定向到首页
+//   //   if (to.path === '/login') {
+//   //     next({path: '/'})
+//   //   } else {
+//   //     next({path: to.path || '/'})
+//   //   }
+//   // } else {
+//   //   // 没有登陆则访问任何页面都重定向到登陆页
+//   //   if (to.path === '/login') {
+//   //     next()
+//   //   } else {
+//   //     next(`/login?redirect=${to.path}`)
+//   //   }
+//   // }
+// })
+
+export default router

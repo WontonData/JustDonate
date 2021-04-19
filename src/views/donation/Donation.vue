@@ -36,7 +36,9 @@ export default {
     ...mapState(["contractDonateFactory", "contractDemandFactory", "account", "contractCharityFactory"])
   },
   mounted() {
-    this.init()
+    setTimeout(() =>{
+      this.init();
+    }, 100)
   },
   data() {
     return {

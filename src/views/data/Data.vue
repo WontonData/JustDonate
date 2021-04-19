@@ -46,7 +46,10 @@ export default {
     };
   },
   created() {
-    this.init()
+    // const _this = this;
+    setTimeout(() =>{
+      this.init();
+    }, 100)
   },
   methods: {
     init() {

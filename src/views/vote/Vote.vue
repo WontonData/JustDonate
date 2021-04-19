@@ -46,6 +46,7 @@ import DemCard from "@/views/demand/child/DemCard";
 import VoteCard from "@/views/vote/child/VoteCard";
 import VoteDialog from "@/views/vote/child/VoteDialog";
 import DemDialog from "@/views/demand/child/DemDialog";
+import store from "@/store";
 
 export default {
   name: "Vote",
@@ -66,7 +67,9 @@ export default {
     }
   },
   created() {
-    this.init()
+    setTimeout(() =>{
+      this.init();
+    }, 100)
   },
   methods: {
     init() {
@@ -169,29 +172,32 @@ export default {
 
     agree() {
       console.log(this.contractVote)
-      this.contractVote.agree(this.vote.id[0]).
-      sendTransaction({
-        from: this.account
-      }).then(res => {
-        console.log(res)
-        this.dialogVote = false
-        this.$message({
-          message: '支持成功！',
-          type: 'success'
-        });
-        // 计时器为空，操作
-        setTimeout(() => {
-          // console.log("刷新" + new Date());
-          this.init(); //加载数据函数
-        }, 5000);
-      }).catch(err => {
-        console.log(err)
-        this.$message({
-          message: '支持失败！',
-          type: 'danger'
+      if (this.account) {
+        this.contractVote.agree(this.vote.id[0]).
+        sendTransaction({
+          from: this.account
+        }).then(res => {
+          console.log(res)
+          this.dialogVote = false
+          this.$message({
+            message: '支持成功！',
+            type: 'success'
+          });
+          // 计时器为空，操作
+          setTimeout(() => {
+            // console.log("刷新" + new Date());
+            this.init(); //加载数据函数
+          }, 5000);
+        }).catch(err => {
+          console.log(err)
+          this.$message({
+            message: '支持失败！',
+            type: 'danger'
+          })
         })
-      })
-
+      } else {
+        store.dispatch("getAccount");
+      }
     },
 
     against() {
