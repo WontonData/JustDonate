@@ -37,6 +37,9 @@ export default {
 }
 
 .el-main {
-  padding-top: 60px;
+  padding: 60px 0 0 0;
+  overflow: hidden;
+  /*background: url('~@/assets/img/donation/3.jpg');*/
+
 }
 </style>

@@ -70,6 +70,7 @@ export default {
   },
   methods: {
     init() {
+      this.demandData = []
       for (let i = 0; i < 15; i++) {
         this.contractCharityFactory.charities(i).then(res => {
           let Charity = window.confluxJS.Contract({
@@ -178,6 +179,11 @@ export default {
           message: '支持成功！',
           type: 'success'
         });
+        // 计时器为空，操作
+        setTimeout(() => {
+          // console.log("刷新" + new Date());
+          this.init(); //加载数据函数
+        }, 5000);
       }).catch(err => {
         console.log(err)
         this.$message({
@@ -199,6 +205,12 @@ export default {
           message: '反对成功！',
           type: 'success'
         });
+        // this.init();
+        // 计时器为空，操作
+        setTimeout(() => {
+          // console.log("刷新" + new Date());
+          this.init(); //加载数据函数
+        }, 5000);
       }).catch(err => {
         console.log(err)
         this.$message({
@@ -213,7 +225,7 @@ export default {
 
 <style scoped>
 .box-dem {
-  width: 96%;
+  width: 93%;
   margin: 0 auto;
 }
 h2 {

@@ -37,7 +37,7 @@ export default new Router({
           path: '/data',
           component: Data,
           meta: {
-            title: "数据中心"
+            title: "首页"
           },
         },
         {

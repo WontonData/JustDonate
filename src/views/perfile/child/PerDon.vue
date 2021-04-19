@@ -92,7 +92,7 @@ export default {
 
 <style scoped>
 .box-don {
-  width: 96%;
+  width: 93%;
   margin: 0 auto;
 }
 

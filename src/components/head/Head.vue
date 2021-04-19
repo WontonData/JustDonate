@@ -8,7 +8,7 @@
 <!--      </el-image>-->
       <!--        <head-logo :src="src"/>-->
     </el-col>
-    <el-col :span="12" :offset="5">
+    <el-col :span="11" :offset="6">
       <Nav />
     </el-col>
     <el-col :span="2">

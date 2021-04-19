@@ -24,7 +24,7 @@ export default {
     return {
       menuData: [
         {
-          name: "数据中心", icon: "el-icon-s-data", routerPath: "/data"
+          name: "首页", icon: "el-icon-s-data", routerPath: "/data"
         },
         {
           name: "捐赠动态", icon: "el-icon-s-promotion", routerPath: "/donation"
@@ -35,9 +35,9 @@ export default {
         {
           name: "投票表决", icon: "el-icon-s-claim", routerPath: "/vote"
         },
-        {
-          name: "关于我们", icon: "el-icon-s-custom", routerPath: "/about"
-        },
+        // {
+        //   name: "关于我们", icon: "el-icon-s-custom", routerPath: "/about"
+        // },
       ]
     }
   },

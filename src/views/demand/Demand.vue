@@ -59,6 +59,7 @@ export default {
   },
   methods: {
     init() {
+      this.demandData = []
       for (let i = 0; i < 15; i++) {
         this.contractCharityFactory.charities(i).then(res => {
           let Charity = window.confluxJS.Contract({
@@ -71,7 +72,6 @@ export default {
           Charity.Info().then(res => {
             console.log(res)
             if (res[12] == 1) {
-              // let demand = {
               demand.id = res[0]
               demand.sender = res[1]
               demand.username = res[3]
@@ -81,7 +81,7 @@ export default {
               demand.img1 = res[8]
               demand.location0 = res[9]
               demand.status = res[12]
-              // }
+
               this.demandData.push(demand)
             }
             //0初始 1通过 2捐赠中 3捐赠完成 9失败
@@ -98,14 +98,6 @@ export default {
     },
     sureDialog() {
       this.innerVisible = true
-      // this.dialogFormVisible = false
-
-      // this.$message({
-      //   message: '捐助成功！',
-      //   type: 'success'
-      // });
-
-      // this.reload();
     },
     sureDemand(item) {
       console.log(item)
@@ -129,6 +121,11 @@ export default {
           message: '捐助成功！',
           type: 'success'
         });
+        // 计时器为空，操作
+        setTimeout(() => {
+          // console.log("刷新" + new Date());
+          this.init(); //加载数据函数
+        }, 5000);
         this.demand.status = 2;
       }).catch(err => {
         console.log(err)
@@ -138,14 +135,15 @@ export default {
         });
       })
       // this.reload();
-    }
+    },
+
   }
 }
 </script>
 
 <style scoped>
 .box-dem {
-  width: 96%;
+  width: 93%;
   margin: 0 auto;
 }
 

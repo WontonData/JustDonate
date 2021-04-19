@@ -64,29 +64,12 @@ export default {
 <style scoped>
 .el-card {
   margin: 0.75rem 0 0.75rem;
-  background: rgba(243, 255, 244, 0.41);
+  background: rgba(244, 255, 245, 0.8);
   position: relative;
 }
 .voted {
-  /*padding: 0 0 10px 0;*/
-  /*margin: 0.75rem 0 0.75rem;*/
-  /*position: relative;*/
   background: #fff3f6 !important;
 }
-
-/*.time {*/
-/*  text-align: center;*/
-/*  font-weight: 500;*/
-/*  !*font-size: 17px;*!*/
-/*  margin: 0 auto;*/
-/*}*/
-
-/*span {*/
-/*  !*float: left;*!*/
-/*  line-height: 30px;*/
-/*  font-size: 20px;*/
-/*  font-weight: 600;*/
-/*}*/
 
 .vote {
   position: absolute;
