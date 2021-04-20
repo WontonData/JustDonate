@@ -50,7 +50,10 @@ export default {
         },
         {
           name: "我的需求", icon: "el-icon-s-flag", routerPath: "/perfile/demand"
-        }
+        },
+        {
+          name: "NFT", icon: "el-icon-present", routerPath: "/perfile/nft"
+        },
       ],
     }
   },
