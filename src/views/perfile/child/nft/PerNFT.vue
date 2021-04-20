@@ -24,13 +24,19 @@
       <!--卡片-->
       <div class="box-nft-main-card">
         <div v-if="radio1==0">
-            <n-f-t-card
-                    :data="nftList"
-                    fit="cover"
+            <n-f-t-card-all
+            :data="nftList"
+            fit="cover"
             style="height: 200px"
             class="image"/>
         </div>
-        <div v-if="radio1==1">1</div>
+        <div v-if="radio1==1">
+          <n-f-t-card
+            :data="nftList"
+            fit="cover"
+            style="height: 200px"
+            class="image"/>
+        </div>
       </div>
     </div>
   </div>
@@ -41,11 +47,12 @@
 import nft1 from '@/assets/img/nft/nft_img1.jpg';
 import nft2 from '@/assets/img/nft/nft_img2.jpg';
 import NFTCard from "./NFTCard";
+import NFTCardAll from "./NFTCardAll";
 import {mapState} from "vuex";
 
   export default {
     name: "PerNFT",
-    components: {NFTCard},
+    components: {NFTCardAll, NFTCard},
     computed: {
       ...mapState(["contractCharityMedal", "account"])
     },
