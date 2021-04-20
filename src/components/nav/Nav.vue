@@ -35,9 +35,9 @@ export default {
         {
           name: "投票表决", icon: "el-icon-s-claim", routerPath: "/vote"
         },
-        // {
-        //   name: "关于我们", icon: "el-icon-s-custom", routerPath: "/about"
-        // },
+        {
+          name: "NFT", icon: "el-icon-present", routerPath: "/about"
+        },
       ]
     }
   },

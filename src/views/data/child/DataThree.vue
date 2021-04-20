@@ -5,7 +5,7 @@
             :colors="colors"
             class="map"
             :settings="chartSettings"
-            height='80vh' width='100vw'
+            height='750px' width='78%'
             style=''
             :legend-visible='false'></ve-map>
   </div>
@@ -28,7 +28,6 @@ export default {
       labelMap: {
         'people': '人口'  //修改指标名称
       },
-      aspectScale: 0.75,
       itemStyle: {
         normal: {   //不选中样式
           borderColor: '#fff',
@@ -36,14 +35,11 @@ export default {
         },
         emphasis: {  //选中样式
           areaColor: "#7F95D1",
-          borderColor: '#7F95D1',
-          shadowColor: 'rgba(7,39,126, 0.5)',
-          shadowBlur: 30
         }
       },
       label: {    //文本设置
         show: true,
-        fontSize: 12,
+        fontSize: 10,
         fontWeight: 300,
         color: '#9498AC'
       },
@@ -111,16 +107,17 @@ export default {
 
 <style scoped>
 .bg {
-  /* width: 93%; */
+  width: 93%;
   margin: 0 auto;
   background-image: url('~@/assets/img/data/BG-introduce.png');
   background-size:100% auto;
-  /* height: 800px; */
+  height: 800px;
   background-color: #fff;
 }
 
 .map {
-  margin-bottom: 50px;
+  /*margin-top:;*/
+  margin: -40px auto 0;
   /*z-index: -1;*/
 }
 </style>
