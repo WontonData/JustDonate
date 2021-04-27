@@ -3,7 +3,7 @@
     <el-row>
       <el-col :span="6" v-for="(item, index) in 14" :key="index">
         <el-card class="card">
-          <img src=img class="image">
+          <img :src=img class="image">
           <div style="padding: 14px;">
 <!--            <span>nft {{item.number}}</span>-->
             <span>nft</span>

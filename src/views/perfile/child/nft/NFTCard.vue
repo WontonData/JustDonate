@@ -5,7 +5,7 @@
         <el-card class="card">
           <img :src=item.src class="image">
           <div style="padding: 14px;">
-            <span>nft {{item.number}}</span>
+            <span>慈善勋章#{{item.number}}</span>
             <div class="bottom clearfix">
               <time class="time">{{ currentDate }}</time>
 <!--              <el-button type="text" class="button">操作按钮</el-button>-->
