@@ -15,8 +15,6 @@
     <el-dialog title="连接钱包"
                :visible="walletDialog"
                width="26%"
-               @open="dialogOpen"
-               @close="dialogClose"
                :before-close="handleClose">
       <conn-dialog @connWallet="connWallet"/>
     </el-dialog>

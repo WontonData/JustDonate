@@ -25,7 +25,7 @@
                 :cardData="demandData"
                 @DemDetail="DemDetail"
                 :btnShow="false"/>
-      <don-card v-else
+      <don-card v-if="status==1"
                 :cardData="donatedData"
                 @DonDetail="DemDetail"/>
     </el-row>
@@ -47,10 +47,11 @@ import DemDialog from "@/views/demand/child/DemDialog";
 import PerDonDialog from "@/views/perfile/child/PerDonDialog";
 import {DemandFactory} from "@/network/conflux";
 import DonCard from "@/views/donation/child/DonCard";
+import Total from "@/views/perfile/child/Total";
 
 export default {
   name: "PerDem",
-  components: {DonCard, DemDialog, DemCard, PerDonDialog},
+  components: {Total, DonCard, DemDialog, DemCard, PerDonDialog},
   computed: {
     ...mapState(["currentUser", "contractDemandFactory", "account", "contractCharityFactory"])
   },

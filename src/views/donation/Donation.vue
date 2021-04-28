@@ -12,7 +12,8 @@
     </el-row>
 
     <el-row :gutter="50">
-      <don-card :cardData="donationData" @DonDetail="DonDetail"/>
+      <don-card :cardData="donationData.filter(data => !search || data.username.toLowerCase().includes(search.toLowerCase()))"
+                @DonDetail="DonDetail"/>
     </el-row>
 
     <el-dialog title="物资援助详情" :visible.sync="dialogFormVisible">

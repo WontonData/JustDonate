@@ -4,11 +4,24 @@
       <el-col :span="4">
         <h2>捐赠列表</h2>
       </el-col>
-
+      <el-col :span="3" :offset="16">
+        <el-radio-group
+            v-model="status"
+            size="medium"
+            fill="#8da1db"
+        >
+          <el-radio-button label="0">详情</el-radio-button>
+          <el-radio-button label="1">总览</el-radio-button>
+        </el-radio-group>
+      </el-col>
     </el-row>
 
     <el-row :gutter="50">
-      <don-card :cardData="donationData" @DonDetail="DonDetail"/>
+      <don-card v-if="status==0"
+                :cardData="donationData"
+                @DonDetail="DonDetail"/>
+      <total v-else
+             :cardData="donationData"/>
     </el-row>
 
     <el-dialog title="物资援助详情" :visible.sync="dialogFormVisible">
@@ -22,10 +35,11 @@
 import {mapState} from "vuex";
 import DonCard from "@/views/donation/child/DonCard";
 import DonDialog from "@/views/donation/child/DonDialog";
+import Total from "@/views/perfile/child/Total";
 
 export default {
   name: "PerDon",
-  components: {DonDialog, DonCard},
+  components: {Total, DonDialog, DonCard},
   computed: {
     ...mapState(["contractDemandFactory", "contractDonateFactory", "account", "contractCharityFactory"])
   },
@@ -39,6 +53,7 @@ export default {
       donate: {},
       dialogFormVisible: false,
       innerVisible: false,
+      status: 0,
 
     }
   },
@@ -98,6 +113,9 @@ export default {
 
 h2 {
   color: #1e2947;
+}
+.el-button, .el-radio-group {
+  margin-top: 20px;
 }
 
 </style>

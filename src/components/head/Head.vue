@@ -147,8 +147,8 @@ span {
 .donateBtn .el-button.is-plain:focus, .el-button.is-plain:hover {
   -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  background: #e3ebff !important;
-  border-color: #b3d8ff!important;
-  color: #7F95D1!important;
+  /*background: #e3ebff !important;*/
+  /*border-color: #b3d8ff!important;*/
+  /*color: #7F95D1!important;*/
 }
 </style>

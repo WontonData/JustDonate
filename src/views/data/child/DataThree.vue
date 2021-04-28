@@ -15,8 +15,6 @@
 
 import DataCard from "@/views/data/child/DataCard";
 import Title from "@/components/title/Title";
-import donate from "@/assets/img/data/donate.svg";
-import demand from "@/assets/img/data/demand.svg";
 import ThreeTitle from "@/components/title/ThreeTitle";
 
 export default {
@@ -26,7 +24,7 @@ export default {
     this.chartSettings = {
       // position: 'province/henan', //位置  默认china  填写省市 要带province
       labelMap: {
-        'people': '人口'  //修改指标名称
+
       },
       aspectScale: 0.75,
       itemStyle: {

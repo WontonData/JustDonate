@@ -1,8 +1,8 @@
 <template>
   <div>
-    <el-button v-show="getStatus" class="donateBtn"
+    <el-button v-show="getStatus" id="donateBtn"
                type="donate" size="small" round plain icon="el-icon-location">{{ getAccount }}</el-button>
-    <el-button v-show="!getStatus" class="donateBtn"
+    <el-button v-show="!getStatus" id="donateBtn"
                type="donate" size="small" round plain icon="el-icon-wallet">连接钱包</el-button>
   </div>
 </template>

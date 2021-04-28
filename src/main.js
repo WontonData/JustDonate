@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import echarts from 'echarts'
+import 'echarts/map/js/china.js'
 import VCharts from 'v-charts'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -12,6 +14,8 @@ import VueIpfs from './plugins/vue-ipfs';
 Vue.component('v-distpicker', VDistpicker)
 
 Vue.config.productionTip = false
+Vue.prototype.$echarts = echarts
+Vue.component('echarts', echarts);
 
 store.dispatch("init");
 // store.dispatch("getAccount");
