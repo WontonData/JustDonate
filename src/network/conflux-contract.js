@@ -33,6 +33,11 @@ class ConfluxContract {
     //   address: ,
     //   abi: require("network/abiCharity.json")
     // });
+    //NFT
+    this.contractCharityMedal = window.confluxJS.Contract({
+      address: "cfxtest:type.contract:accu342fdxt6wugpp9jv03x39a1rsgdpwp9w8usuf1",
+      abi: require("network/abiCharityMedal1.json")
+    });
 
     console.log("Conflux portal enable success!");
   }

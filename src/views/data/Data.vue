@@ -3,6 +3,7 @@
     <data-one />
     <data-tow :card-data="cardData"/>
     <data-three />
+    <data-four/>
     <bottom />
   </div>
 </template>
@@ -16,10 +17,11 @@ import DataOne from "@/views/data/child/DataOne";
 import DataTow from "@/views/data/child/DataTow";
 import Bottom from "@/views/data/bottom/Bottom";
 import DataThree from "@/views/data/child/DataThree";
+import DataFour from "@/views/data/child/DataFour";
 
 export default {
   name: "Data",
-  components: {DataThree, Bottom, DataTow, DataOne, DataCard},
+  components: {DataFour, DataThree, Bottom, DataTow, DataOne, DataCard},
   computed: {
     ...mapState(["contractDonateFactory", "contractDemandFactory", "account"])
   },

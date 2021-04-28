@@ -8,6 +8,7 @@ import About from "@/views/about/About";
 import Perfile from "@/views/perfile/Perfile";
 import PerDon from "@/views/perfile/child/PerDon";
 import PerDem from "@/views/perfile/child/PerDem";
+import PerNFT from "@/views/perfile/child/nft/PerNFT";
 import Vote from "@/views/vote/Vote";
 import IpfsInfo from "./views/ipfs/IpfsInfo";
 
@@ -93,6 +94,13 @@ const router = new Router({
           component: PerDem,
           meta: {
             title: "我的需求"
+          },
+        },
+        {
+          path: '/perfile/nft',
+          component: PerNFT,
+          meta: {
+            title: "我的NFT"
           },
         },
       ]
