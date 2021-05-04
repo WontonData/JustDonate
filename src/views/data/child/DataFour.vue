@@ -84,7 +84,7 @@
             <el-col :span="3"><img :src=first></el-col>
             <el-col :span="4"><img :src=img class="image"></el-col>
             <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">信工1队</el-col></el-row>
+              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心1队</el-col></el-row>
               <el-row><el-col style="color: #464646;font-size: 13px">爱心值4125</el-col></el-row>
             </el-col>
             <el-col :span="1">75</el-col>
@@ -95,7 +95,7 @@
             <el-col :span="3"><img :src=second style="height: 40px;width: 40px"></el-col>
             <el-col :span="4"><img :src=img class="image"></el-col>
             <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">信工5队</el-col></el-row>
+              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心5队</el-col></el-row>
               <el-row><el-col style="color: #464646;font-size: 13px">爱心值3630</el-col></el-row>
             </el-col>
             <el-col :span="1">66</el-col>
@@ -106,7 +106,7 @@
             <el-col :span="3"><img :src=third style="height: 40px;width: 40px"></el-col>
             <el-col :span="4"><img :src=img class="image"></el-col>
             <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">信工3队</el-col></el-row>
+              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心3队</el-col></el-row>
               <el-row><el-col style="color: #464646;font-size: 13px">爱心值2915</el-col></el-row>
             </el-col>
             <el-col :span="1">53</el-col>
@@ -117,7 +117,7 @@
             <el-col :span="3"><h4>4</h4></el-col>
             <el-col :span="4"><img :src=img class="image"></el-col>
             <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">信工7队</el-col></el-row>
+              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心7队</el-col></el-row>
               <el-row><el-col style="color: #464646;font-size: 13px">爱心值2585</el-col></el-row>
             </el-col>
             <el-col :span="1">47</el-col>
@@ -128,7 +128,7 @@
             <el-col :span="3"><h4>5</h4></el-col>
             <el-col :span="4"><img :src=img class="image"></el-col>
             <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">信工2队</el-col></el-row>
+              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心2队</el-col></el-row>
               <el-row><el-col style="color: #464646;font-size: 13px">爱心值1760</el-col></el-row>
             </el-col>
             <el-col :span="1">32</el-col>
@@ -139,7 +139,7 @@
             <el-col :span="3"><h4>6</h4></el-col>
             <el-col :span="4"><img :src=img class="image"></el-col>
             <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">信工6队</el-col></el-row>
+              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心6队</el-col></el-row>
               <el-row><el-col style="color: #464646;font-size: 13px">爱心值1540</el-col></el-row>
             </el-col>
             <el-col :span="1">28</el-col>
@@ -150,7 +150,7 @@
             <el-col :span="3"><h4>7</h4></el-col>
             <el-col :span="4"><img :src=img class="image"></el-col>
             <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">信工4队</el-col></el-row>
+              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心4队</el-col></el-row>
               <el-row><el-col style="color: #464646;font-size: 13px">爱心值770</el-col></el-row>
             </el-col>
             <el-col :span="1">14</el-col>
@@ -161,7 +161,7 @@
             <el-col :span="3"><h4>8</h4></el-col>
             <el-col :span="4"><img :src=img class="image"></el-col>
             <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">信工8队</el-col></el-row>
+              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心8队</el-col></el-row>
               <el-row><el-col style="color: #464646;font-size: 13px">爱心值385</el-col></el-row>
             </el-col>
             <el-col :span="1">7</el-col>
