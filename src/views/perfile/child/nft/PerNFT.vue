@@ -94,18 +94,7 @@ import {mapState} from "vuex";
               console.log(err)
             })
           }
-
-          // console.log(res)
-          // console.log(res[0][0])
-          // console.log(res.length)
         })
-        // for (let i = 0; i < 1; i++) {
-        //   this.contractCharityMedal.tokenURI(1).then(res => {
-        //     console.log(res)
-        //   }).catch(err => {
-        //     console.log(err)
-        //   })
-        // }
       }
     },
 

@@ -80,94 +80,22 @@
             <el-col :span="2"></el-col>
           </el-row>
           <!--总榜-->
-          <el-row style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;margin-left: 2px">
-            <el-col :span="3"><img :src=first></el-col>
+          <el-row v-for="(nftOwner,index) in filterNftOwners" :key="index" style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;margin-left: 2px">
+            <el-col :span="3" v-if="index===0||index===1||index===2"><img :src=rankImg[index]></el-col>
+            <el-col :span="3" v-if="index!==0&&index!==1&&index!==2" style="padding-left: 17px">
+              <h4>{{index+1}}</h4>
+            </el-col>
+
             <el-col :span="4"><img :src=img class="image"></el-col>
             <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心1队</el-col></el-row>
-              <el-row><el-col style="color: #464646;font-size: 13px">爱心值4125</el-col></el-row>
+              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">{{nftOwner.address.substring(0,15)}}...</el-col></el-row>
+              <el-row><el-col style="color: #464646;font-size: 13px">爱心值{{nftOwner.medal*255}}</el-col></el-row>
             </el-col>
-            <el-col :span="1">75</el-col>
+            <el-col :span="1">{{nftOwner.medal}}</el-col>
             <el-col :span="2"><img :src=img1 class="img1"></el-col>
             <el-col :span="2"> <span class="el-icon-arrow-right" style="color: rgba(53,53,53,0.41)"></span></el-col>
           </el-row>
-          <el-row style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;margin-left: 2px">
-            <el-col :span="3"><img :src=second style="height: 40px;width: 40px"></el-col>
-            <el-col :span="4"><img :src=img class="image"></el-col>
-            <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心5队</el-col></el-row>
-              <el-row><el-col style="color: #464646;font-size: 13px">爱心值3630</el-col></el-row>
-            </el-col>
-            <el-col :span="1">66</el-col>
-            <el-col :span="2"><img :src=img1 class="img1"></el-col>
-            <el-col :span="2"> <span class="el-icon-arrow-right" style="color: rgba(53,53,53,0.41)"></span></el-col>
-          </el-row>
-          <el-row style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;margin-left: 2px">
-            <el-col :span="3"><img :src=third style="height: 40px;width: 40px"></el-col>
-            <el-col :span="4"><img :src=img class="image"></el-col>
-            <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心3队</el-col></el-row>
-              <el-row><el-col style="color: #464646;font-size: 13px">爱心值2915</el-col></el-row>
-            </el-col>
-            <el-col :span="1">53</el-col>
-            <el-col :span="2"><img :src=img1 class="img1"></el-col>
-            <el-col :span="2"> <span class="el-icon-arrow-right" style="color: rgba(53,53,53,0.41)"></span></el-col>
-          </el-row>
-          <el-row style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;margin-left: 10px">
-            <el-col :span="3"><h4>4</h4></el-col>
-            <el-col :span="4"><img :src=img class="image"></el-col>
-            <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心7队</el-col></el-row>
-              <el-row><el-col style="color: #464646;font-size: 13px">爱心值2585</el-col></el-row>
-            </el-col>
-            <el-col :span="1">47</el-col>
-            <el-col :span="2"><img :src=img1 class="img1"></el-col>
-            <el-col :span="2"> <span class="el-icon-arrow-right" style="color: rgba(53,53,53,0.41)"></span></el-col>
-          </el-row>
-          <el-row style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;margin-left: 10px">
-            <el-col :span="3"><h4>5</h4></el-col>
-            <el-col :span="4"><img :src=img class="image"></el-col>
-            <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心2队</el-col></el-row>
-              <el-row><el-col style="color: #464646;font-size: 13px">爱心值1760</el-col></el-row>
-            </el-col>
-            <el-col :span="1">32</el-col>
-            <el-col :span="2"><img :src=img1 class="img1"></el-col>
-            <el-col :span="2"> <span class="el-icon-arrow-right" style="color: rgba(53,53,53,0.41)"></span></el-col>
-          </el-row>
-          <el-row style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;margin-left: 10px">
-            <el-col :span="3"><h4>6</h4></el-col>
-            <el-col :span="4"><img :src=img class="image"></el-col>
-            <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心6队</el-col></el-row>
-              <el-row><el-col style="color: #464646;font-size: 13px">爱心值1540</el-col></el-row>
-            </el-col>
-            <el-col :span="1">28</el-col>
-            <el-col :span="2"><img :src=img1 class="img1"></el-col>
-            <el-col :span="2"> <span class="el-icon-arrow-right" style="color: rgba(53,53,53,0.41)"></span></el-col>
-          </el-row>
-          <el-row style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;margin-left: 10px">
-            <el-col :span="3"><h4>7</h4></el-col>
-            <el-col :span="4"><img :src=img class="image"></el-col>
-            <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心4队</el-col></el-row>
-              <el-row><el-col style="color: #464646;font-size: 13px">爱心值770</el-col></el-row>
-            </el-col>
-            <el-col :span="1">14</el-col>
-            <el-col :span="2"><img :src=img1 class="img1"></el-col>
-            <el-col :span="2"> <span class="el-icon-arrow-right" style="color: rgba(53,53,53,0.41)"></span></el-col>
-          </el-row>
-          <el-row style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;margin-left: 10px">
-            <el-col :span="3"><h4>8</h4></el-col>
-            <el-col :span="4"><img :src=img class="image"></el-col>
-            <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">爱心8队</el-col></el-row>
-              <el-row><el-col style="color: #464646;font-size: 13px">爱心值385</el-col></el-row>
-            </el-col>
-            <el-col :span="1">7</el-col>
-            <el-col :span="2"><img :src=img1 class="img1"></el-col>
-            <el-col :span="2"> <span class="el-icon-arrow-right" style="color: rgba(53,53,53,0.41)"></span></el-col>
-          </el-row>
+
         </el-col>
       </el-row>
     </div>
@@ -178,22 +106,56 @@
   import Title from "@/components/title/Title";
   import logo from '@/assets/img/data/logo.png';
   import love from '@/assets/img/data/love.png';
-  import first from '@/assets/img/data/first.png';
-  import second from '@/assets/img/data/second.png';
-  import third from '@/assets/img/data/third.png';
+  import rank1 from '@/assets/img/data/rank1.png';
+  import rank2 from '@/assets/img/data/rank2.png';
+  import rank3 from '@/assets/img/data/rank3.png';
+  import {mapState} from "vuex";
 
   export default {
     name: "DataFour",
     components: {Title},
+    computed: {
+      ...mapState(["contractCharityMedal", "account"]),
+      filterNftOwners(){
+        //取出相关数据
+        // const {searchName,persons,orderType}=this
+        //最终需要显示的数组
+        let fPersons;
+        //对persons进行过滤
+        fPersons=this.nftOwners;
+
+        //排序
+        // if(orderType!==0){
+        fPersons.sort(function(p1,p2){    //返回负数P1在前，返回正数P2在前
+          //1代表升序，2代表降序
+          // if(orderType===2){
+          return p2.medal-p1.medal
+          // }else{
+          //   return p1.age-p2.age
+          // }
+          // return p2.age-p1.age
+        })
+        // }
+
+        return fPersons
+      }
+    },
     data() {
       return {
         title: '排行榜',
         img: logo,
         img1: love,
-        first: first,
-        second: second,
-        third: third
+        nftOwners: [],
+        rankImg: [rank1,rank2,rank3],
+        nftRankList: [],
+        input3: ''
       }
+    },
+
+    mounted() {
+      setTimeout(() =>{
+        this.init();
+      }, 100)
     },
     methods: {
       handleOpen(key, keyPath) {
@@ -201,6 +163,27 @@
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+
+      init() {
+        this.nftOwners = []
+        this.contractCharityMedal.getOwners().then(res => {
+          for (let i = 0; i < res.length; i++) {
+            let nftOwner = {
+              address :res[i]
+            }
+            this.contractCharityMedal.balanceOf(res[i]).then(res => {
+              // nftOwner.medal = parseInt(5-i);
+              nftOwner.medal = parseInt(res[0]);
+              console.log(nftOwner)
+              this.nftOwners.push(nftOwner);
+            }).catch(err => {
+              console.log(err)
+            })
+          }
+        }).catch(err => {
+          console.log(err)
+        })
       }
     }
   }

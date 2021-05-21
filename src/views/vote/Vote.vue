@@ -8,17 +8,20 @@
         <p style="margin-top: 25px"><i class="el-icon-coin"/> 您拥有的投票权：{{ voteTokenBalance }}</p>
       </el-col>
       <el-col :span="4" :offset="11">
-        <el-input placeholder="搜索需求方名称" v-model="search" class="input-with-select">
+        <el-input placeholder="搜索投票名称" v-model="search" class="input-with-select">
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
       </el-col>
     </el-row>
 
-    <el-row :gutter="50">
-      <vote-card
-          :cardData="demandData.filter(data => !search || data.username.toLowerCase().includes(search.toLowerCase()))"
-          @voteAgree="voteAgree" @voteAgainst="voteAgainst" @voteDetail="voteDetail"/>
+    <el-row>
+      <vote-item></vote-item>
     </el-row>
+<!--    <el-row :gutter="50">-->
+<!--      <vote-card-->
+<!--          :cardData="demandData.filter(data => !search || data.username.toLowerCase().includes(search.toLowerCase()))"-->
+<!--          @voteAgree="voteAgree" @voteAgainst="voteAgainst" @voteDetail="voteDetail"/>-->
+<!--    </el-row>-->
 
     <el-dialog title="需求详情" :visible.sync="dialogFormVisible">
       <dem-dialog @sureDialog="sureDialog" :form="vote" :unVote="false" :perDem="true"/>
@@ -48,10 +51,11 @@ import VoteCard from "@/views/vote/child/VoteCard";
 import VoteDialog from "@/views/vote/child/VoteDialog";
 import DemDialog from "@/views/demand/child/DemDialog";
 import store from "@/store";
+import VoteItem from "@/views/vote/child/VoteItem";
 
 export default {
   name: "Vote",
-  components: {DemDialog, VoteDialog, VoteCard, DemCard},
+  components: {DemDialog, VoteDialog, VoteCard, DemCard,VoteItem},
   computed: {
     ...mapState(["currentUser", "contractVote", "contractDemandFactory", "account", "contractCharityFactory"])
   },
