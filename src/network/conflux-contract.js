@@ -35,7 +35,7 @@ class ConfluxContract {
     // });
     //NFT
     this.contractCharityMedal = window.confluxJS.Contract({
-      address: "cfxtest:type.contract:accu342fdxt6wugpp9jv03x39a1rsgdpwp9w8usuf1",
+      address: "cfxtest:type.contract:accrg6aybacjxh7cjrp8h1khn2t8fxgn0jz37s910n",
       abi: require("network/abiCharityMedal1.json")
     });
 
