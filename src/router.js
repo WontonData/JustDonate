@@ -11,6 +11,7 @@ import PerDem from "@/views/perfile/child/PerDem";
 import PerNFT from "@/views/perfile/child/nft/PerNFT";
 import Vote from "@/views/vote/Vote";
 import IpfsInfo from "./views/ipfs/IpfsInfo";
+import Logistics from "@/views/logistics/Logistics";
 
 
 Vue.use(Router)
@@ -22,6 +23,10 @@ const router = new Router({
     {
       path: '/',
       redirect: '/index',
+    },
+    {
+      path: '/logistics/:order',
+      component: Logistics,
     },
     {
       path: '/index',

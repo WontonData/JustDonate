@@ -18,6 +18,8 @@
       </el-form-item>
       <el-form-item label="运输单号" :label-width="formLabelWidth">
         <span>{{ form.express }}</span>
+        <el-button class="logistics" size="mini" @click="logistics" icon="el-icon-search" circle></el-button>
+
       </el-form-item>
     </el-form>
     <div slot="footer" class="dialog-footer">
@@ -52,6 +54,10 @@ export default {
       this.$emit("sureDialog")
       this.form = {}
     },
+    logistics() {
+      // this.$router.push({ path: '/logistics', params: { order: form.express }})
+      this.$router.replace('/logistics/' + this.form.express)
+    }
   }
 }
 </script>
@@ -59,5 +65,8 @@ export default {
 <style scoped>
 .dialog-footer {
   text-align: right;
+}
+.logistics {
+  margin-left: 13px;
 }
 </style>

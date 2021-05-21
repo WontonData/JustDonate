@@ -48,8 +48,8 @@ export default {
       donate: {},
       dialogFormVisible: false,
       innerVisible: false,
-      hash: ['0x3757a1fbe8be8b3a20a32caa3e5bc0fd419c1104536240861edd10af6097c4e5',
-        '0x054bc7fb7e875e6574c5eaf298c7946652614c2888d1c17972901dffab1e578c']
+      logistics: ['SF1432571440568','YT5486585591911','YT5449342729443','SF1333473636477',
+        '4313857449417','EER000001406', '557053465723100','773097726375585',]
     }
   },
   methods: {
@@ -78,7 +78,7 @@ export default {
               donate.img1 = res[8]
               donate.location0 = res[9]
               donate.location1 = res[10]//捐助者 位置地区
-              donate.express = res[11]
+              donate.express = this.logistics[i%8]
               donate.status = res[12]
               // }
               this.donationData.push(donate)
