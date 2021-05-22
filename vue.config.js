@@ -22,42 +22,22 @@ module.exports = {
       }
     }
   },
-  // dev: {
-    // Paths
-    // proxyTable: {
-    //   // 跨域处理
-    //   '/api': {
-    //     target: "http://localhost:8081/demo",
-    //     changeOrigin: true,
-    //     pathRewrite: {
-    //       '^/api': ''
-    //     }
-    //   }
-    //
-    // },
-  // },
-  // proxyTable: {
-  //   '/api/':{                                // 要代理的接口名
-  //     target:'https://api.51tracking.com',   // 要代理的接口地址
-  //     changeOrigin:true,                            // 允许跨域
-  //     pathRewrite:{'^/api/':''}            // 接口名重写
-  //   }
-  // },
-  devServer: {
-    open:false,
-    hot:true,
-    proxy: {
-      "/api": {
-        target: "https://api.51tracking.com",
-        ws: true,
-        // secure: false,
-        pathRewrite: {
-          "^/api": ""
-        },
-        changeOrigin: true,
-        logLevel: "debug"
-      }
 
-    }
-  }
+  // devServer: {
+  //   open:false,
+  //   hot:true,
+  //   proxy: {
+  //     "/api": {
+  //       target: "https://api.51tracking.com",
+  //       ws: true,
+  //       // secure: false,
+  //       pathRewrite: {
+  //         "^/api": ""
+  //       },
+  //       changeOrigin: true,
+  //       logLevel: "debug"
+  //     }
+  //
+  //   }
+  // }
 }

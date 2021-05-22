@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <el-col :span="4" :offset="2">
+    <el-col :span="4" :offset="1">
       <span>JustDonte公益互助平台</span>
       <!--      <el-image-->
       <!--          style="width: 40px; height: 40px"-->
@@ -78,7 +78,7 @@ span {
   line-height: 60px;
   font-size: 19px;
   color: #f9faff;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 </style>
