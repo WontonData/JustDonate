@@ -6,7 +6,7 @@
           <div class="mask" >
             <p @click="DonDetail(item)">已在区块链存证</p>
 <!--            <el-image :src="'https://ipfs.io/ipfs/'+item.img0"-->
-            <el-image :src="'https://ipfs.io/ipfs/'+item.img0"
+            <el-image :src="'https://ipfs.io/ipfs/'+item.img1"
                       fit="cover"
                       style="height: 200px"
                       class="image">
