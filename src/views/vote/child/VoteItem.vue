@@ -57,18 +57,10 @@
       init() {
         for (let i = 0; i < this.options.length; i++) {
           //获取赞同/反对数
-          console.log(this.contractVote)
-          console.log(this.options[i].customId)
           this.contractVote.getVotesCount(this.options[i].customId).then(res => {
-            console.log(res)
-            console.log(res[0][0])
-            console.log(res[1][0])
-
-            console.log(this.options[i].answers[0].votes)
-            console.log(this.options[i].answers[1].votes)
-
             res[0][0] >= 0 ? this.options[i].answers[0].votes = res[0][0] : this.options[i].answers[0].votes = 0
             res[1][0] >= 0 ? this.options[i].answers[1].votes = res[1][0] : this.options[i].answers[1].votes = 0
+
           }).catch(err => {
             console.log(err)
           })
