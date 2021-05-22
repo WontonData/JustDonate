@@ -28,6 +28,7 @@ export default {
   name: "CardText",
   computed: {
     senderSub() {
+      console.log(this.item.sender)
       return this.item.sender.substr(0,11) + "···" +
           this.item.sender.substr(this.item.sender.length - 8,this.item.sender.length)
     },
