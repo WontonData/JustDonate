@@ -79,6 +79,10 @@ export default {
   },
   methods: {
     init() {
+
+
+
+
       // this.getVoteTokenBalance()
       this.demandData = []
       for (let i = 0; i < 15; i++) {
@@ -103,6 +107,7 @@ export default {
                 approve: 0,
                 against: 0,
               }
+
               //获取赞同/反对数
               this.contractVote.getVotesCount(res[0]).then(res => {
                 console.log(res)
@@ -225,8 +230,6 @@ export default {
         store.dispatch("getAccount");
       }
     },
-
-
 
     against(customId) {
       if (this.account) {

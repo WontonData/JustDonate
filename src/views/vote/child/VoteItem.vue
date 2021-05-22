@@ -12,30 +12,34 @@
 
 <script>
   import VuePoll from 'vue-poll'
+  import {mapState} from "vuex";
 
   export default {
     name: "VoteItem",
+    computed: {
+      ...mapState([ "contractVote"])
+    },
     data() {
       return {
         options: [
           {
-            customId:200,
+            customId:1,
             question: '本站将于2021年5月27日12:00进行全面整改，预计于4月1日11:59结束，整改期间无法查看本站，由此给您带来很大的麻烦，请您谅解。',
             answers: [
-              { value: 1, text: '同意', votes: 53 },
-              { value: 2, text: '反对', votes: 35 },
+              { value: 1, text: '同意', votes: 0 },
+              { value: 2, text: '反对', votes: 0 },
               // { value: 3, text: 'Angular', votes: 30 },
               // { value: 4, text: 'Other', votes: 10 }
             ]
           },
           {
-            customId:100,
+            customId:2,
             question: '2. What\'s your favourite <strong>JS</strong> framework?',
             answers: [
-              { value: 1, text: 'Vue', votes: 53 },
-              { value: 2, text: 'React', votes: 35 },
-              { value: 3, text: 'Angular', votes: 30 },
-              { value: 4, text: 'Other', votes: 10 }
+              { value: 1, text: 'Vue', votes: 0 },
+              { value: 2, text: 'React', votes: 0 },
+              { value: 3, text: 'Angular', votes: 0 },
+              { value: 4, text: 'Other', votes: 0 }
             ]
           }
         ]
@@ -44,7 +48,33 @@
     components: {
       VuePoll
     },
+    created() {
+      setTimeout(() => {
+        this.init();
+      }, 100)
+    },
     methods: {
+      init() {
+        for (let i = 0; i < this.options.length; i++) {
+          //获取赞同/反对数
+          console.log(this.contractVote)
+          console.log(this.options[i].customId)
+          this.contractVote.getVotesCount(this.options[i].customId).then(res => {
+            console.log(res)
+            console.log(res[0][0])
+            console.log(res[1][0])
+
+            console.log(this.options[i].answers[0].votes)
+            console.log(this.options[i].answers[1].votes)
+
+            res[0][0] >= 0 ? this.options[i].answers[0].votes = res[0][0] : this.options[i].answers[0].votes = 0
+            res[1][0] >= 0 ? this.options[i].answers[1].votes = res[1][0] : this.options[i].answers[1].votes = 0
+          }).catch(err => {
+            console.log(err)
+          })
+        }
+
+      },
       addVote(obj){
         console.log(obj);
         console.log('You voted ' + obj.value + '!');

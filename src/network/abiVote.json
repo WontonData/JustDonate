@@ -169,6 +169,19 @@
   },
   {
     "inputs": [],
+    "name": "SPONSOR",
+    "outputs": [
+      {
+        "internalType": "contract SponsorWhitelistControl",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "admin",
     "outputs": [
       {

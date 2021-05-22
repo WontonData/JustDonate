@@ -10,7 +10,7 @@ class ConfluxContract {
     //投票
     this.contractVote = window.confluxJS.Contract({
       //address: "cfxtest:type.contract:acbuadnh48p86puwg29cht1w824zdshdf6f9h6n4sn",
-      address: "cfx:acfac5zt93bh2n6k74vxkw4jv16rng8usyze5s8w1t",
+      address: "cfx:acfszvkxrw1yf58rwf5vkk8b91v89xdfza5ruke3fb",
       abi: require("network/abiVote.json")
     });
     // //捐赠
