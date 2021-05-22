@@ -70,7 +70,7 @@ export default {
           }
           Charity.Info().then(res => {
             console.log(res)
-            if (res[4] == "路演展示") {
+            if (res[4] == "路演测试") {
               if (res[12] == 2 || res[12] == 3) {
                 // donate = {
                 donate.id = res[0]

@@ -84,7 +84,7 @@ export default {
           }
           Charity.Info().then(res => {
             console.log(res)
-            if (res[3] == "路演展示") {
+            if (res[3] == "路演测试") {
               if (res[12] == 1 || res[12] == 0) {
                 let demand = {
                   id: res[0],
