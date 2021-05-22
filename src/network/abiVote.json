@@ -5,17 +5,10 @@
         "internalType": "uint256",
         "name": "initialSupply",
         "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "charityFactoryAddress",
-        "type": "address",
-        "networkId": 1
       }
     ],
     "stateMutability": "nonpayable",
-    "type": "constructor",
-    "name": "constructor"
+    "type": "constructor"
   },
   {
     "anonymous": false,
@@ -24,15 +17,13 @@
         "indexed": true,
         "internalType": "address",
         "name": "owner",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "indexed": true,
         "internalType": "address",
         "name": "spender",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "indexed": false,
@@ -51,15 +42,13 @@
         "indexed": true,
         "internalType": "address",
         "name": "previousOwner",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "indexed": true,
         "internalType": "address",
         "name": "newOwner",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       }
     ],
     "name": "OwnershipTransferred",
@@ -72,15 +61,13 @@
         "indexed": true,
         "internalType": "address",
         "name": "from",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "indexed": true,
         "internalType": "address",
         "name": "to",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "indexed": false,
@@ -105,8 +92,7 @@
         "indexed": false,
         "internalType": "address",
         "name": "sender",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "indexed": false,
@@ -131,8 +117,7 @@
         "indexed": false,
         "internalType": "address",
         "name": "sender",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "indexed": false,
@@ -189,8 +174,7 @@
       {
         "internalType": "address",
         "name": "",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -201,14 +185,12 @@
       {
         "internalType": "address",
         "name": "owner",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "internalType": "address",
         "name": "spender",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       }
     ],
     "name": "allowance",
@@ -227,8 +209,7 @@
       {
         "internalType": "address",
         "name": "spender",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "internalType": "uint256",
@@ -252,8 +233,7 @@
       {
         "internalType": "address",
         "name": "account",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       }
     ],
     "name": "balanceOf",
@@ -285,8 +265,7 @@
       {
         "internalType": "address",
         "name": "spender",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "internalType": "uint256",
@@ -306,25 +285,11 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "failVoteNum",
-    "outputs": [
-      {
-        "internalType": "uint8",
-        "name": "",
-        "type": "uint8"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "address",
         "name": "spender",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "internalType": "uint256",
@@ -348,8 +313,7 @@
       {
         "internalType": "address",
         "name": "",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "internalType": "uint256",
@@ -388,21 +352,7 @@
       {
         "internalType": "address payable",
         "name": "",
-        "type": "address",
-        "networkId": 1
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "passVoteNum",
-    "outputs": [
-      {
-        "internalType": "uint8",
-        "name": "",
-        "type": "uint8"
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -439,8 +389,7 @@
       {
         "internalType": "address",
         "name": "recipient",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "internalType": "uint256",
@@ -464,14 +413,12 @@
       {
         "internalType": "address",
         "name": "sender",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "internalType": "address",
         "name": "recipient",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       },
       {
         "internalType": "uint256",
@@ -495,8 +442,7 @@
       {
         "internalType": "address payable",
         "name": "newOwner",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       }
     ],
     "name": "transferOwnership",
@@ -550,64 +496,6 @@
         "type": "uint256"
       }
     ],
-    "name": "getCharity",
-    "outputs": [
-      {
-        "internalType": "contract Charity",
-        "name": "charity",
-        "type": "address",
-        "networkId": 1
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_id",
-        "type": "uint256"
-      }
-    ],
-    "name": "getVoteStatus",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "status",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_id",
-        "type": "uint256"
-      }
-    ],
-    "name": "getVoteNextStatus",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "status",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_id",
-        "type": "uint256"
-      }
-    ],
     "name": "agree",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -629,36 +517,9 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
-        "name": "_num",
-        "type": "uint256"
-      }
-    ],
-    "name": "updatePassVoteNum",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_num",
-        "type": "uint256"
-      }
-    ],
-    "name": "updateFailVoteNum",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "address",
         "name": "receiverAddress",
-        "type": "address",
-        "networkId": 1
+        "type": "address"
       }
     ],
     "name": "updateReceiver",

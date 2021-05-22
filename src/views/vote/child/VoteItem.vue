@@ -17,18 +17,19 @@
     name: "VoteItem",
     data() {
       return {
-        voteQuestions: ['本站将于2021年5月27日12:00进行全面整改，预计于4月1日11:59结束，整改期间无法查看本站，由此给您带来很大的麻烦，请您谅解。'],
         options: [
           {
-            question: '1. What\'s your favourite <strong>JS</strong> framework?',
+            customId:200,
+            question: '本站将于2021年5月27日12:00进行全面整改，预计于4月1日11:59结束，整改期间无法查看本站，由此给您带来很大的麻烦，请您谅解。',
             answers: [
-              { value: 1, text: 'Vue', votes: 53 },
-              { value: 2, text: 'React', votes: 35 },
-              { value: 3, text: 'Angular', votes: 30 },
-              { value: 4, text: 'Other', votes: 10 }
+              { value: 1, text: '同意', votes: 53 },
+              { value: 2, text: '反对', votes: 35 },
+              // { value: 3, text: 'Angular', votes: 30 },
+              // { value: 4, text: 'Other', votes: 10 }
             ]
           },
           {
+            customId:100,
             question: '2. What\'s your favourite <strong>JS</strong> framework?',
             answers: [
               { value: 1, text: 'Vue', votes: 53 },
@@ -45,7 +46,9 @@
     },
     methods: {
       addVote(obj){
+        console.log(obj);
         console.log('You voted ' + obj.value + '!');
+        this.$emit("voteValue",obj)
       }
     }
   }

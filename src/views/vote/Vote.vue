@@ -15,9 +15,9 @@
     </el-row>
 
     <el-row>
-      <vote-item></vote-item>
+      <vote-item @voteValue="voteForm"></vote-item>
     </el-row>
-<!--    <el-row :gutter="50">-->
+<!--    <el-row :gutter="50">-->`
 <!--      <vote-card-->
 <!--          :cardData="demandData.filter(data => !search || data.username.toLowerCase().includes(search.toLowerCase()))"-->
 <!--          @voteAgree="voteAgree" @voteAgainst="voteAgainst" @voteDetail="voteDetail"/>-->
@@ -187,10 +187,20 @@ export default {
       // })
     },
 
-    agree() {
+    voteForm(obj) {
+      //赞同
+      if (obj.value == 1){
+        this.agree(obj.customId)
+      } else {
+        this.against(obj.customId)
+      }
+    },
+
+    agree(customId) {
+      console.log(customId)
       console.log(this.contractVote)
       if (this.account) {
-        this.contractVote.agree(this.vote.id[0]).sendTransaction({
+        this.contractVote.agree(customId).sendTransaction({
           from: this.account
         }).then(res => {
           console.log(res)
@@ -216,9 +226,11 @@ export default {
       }
     },
 
-    against() {
+
+
+    against(customId) {
       if (this.account) {
-        this.contractVote.against(this.vote.id[0]).sendTransaction({
+        this.contractVote.against(customId).sendTransaction({
           from: this.account
         }).then(res => {
           console.log(res)
