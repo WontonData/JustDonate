@@ -23,21 +23,21 @@ module.exports = {
     }
   },
 
-  // devServer: {
-  //   open:false,
-  //   hot:true,
-  //   proxy: {
-  //     "/api": {
-  //       target: "https://api.51tracking.com",
-  //       ws: true,
-  //       // secure: false,
-  //       pathRewrite: {
-  //         "^/api": ""
-  //       },
-  //       changeOrigin: true,
-  //       logLevel: "debug"
-  //     }
-  //
-  //   }
-  // }
+  devServer: {
+    open:false,
+    hot:true,
+    proxy: {
+      "/api": {
+        target: "https://api.51tracking.com",
+        ws: true,
+        // secure: false,
+        pathRewrite: {
+          "^/api": ""
+        },
+        changeOrigin: true,
+        logLevel: "debug"
+      }
+
+    }
+  }
 }

@@ -4,8 +4,8 @@ export function request(config) {
 
   //1、创建axios实例
   const instance = axios.create({
-    // baseURL: '/api',
-    baseURL: 'https://api.51tracking.com',
+    baseURL: '/api',
+    // baseURL: 'https://api.51tracking.com',
     headers: {'Access-Control-Allow-Origin': '*',
       'Tracking-Api-Key': 'b92425e2-b765-4d33-acdc-7749c64e7a68',
       'Content-Type': 'application/json;charset=utf-8'},
