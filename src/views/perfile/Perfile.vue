@@ -1,13 +1,12 @@
 <template>
   <el-container>
     <el-header>
-      <Head />
+      <Head/>
     </el-header>
     <el-container>
       <el-main>
         <keep-alive :include="['PerDem', 'PerDon', 'Vote']">
-
-        <router-view/>
+          <router-view/>
         </keep-alive>
       </el-main>
     </el-container>
@@ -16,6 +15,7 @@
 
 <script>
 import Head from "@/views/perfile/child/Head";
+
 export default {
   name: "Perfile",
   components: {Head}

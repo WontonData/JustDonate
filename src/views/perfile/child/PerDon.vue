@@ -70,7 +70,7 @@ export default {
           }
           Charity.Info().then(res => {
             console.log(res)
-            if (res[3] == "杭州电子科技大学") {
+            if (res[3] == "路演展示") {
               if (res[12] == 2 || res[12] == 3) {
                 // donate = {
                 donate.id = res[0]

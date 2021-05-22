@@ -64,8 +64,8 @@ export default {
       donatedData: [],
       oldDemandData: [],
       demand: {},
-      logistics: ['SF1432571440568','YT5486585591911','YT5449342729443','SF1333473636477',
-        '4313857449417','EER000001406', '557053465723100','773097726375585',]
+      logistics: ['SF1432571440568', 'YT5486585591911', 'YT5449342729443', 'SF1333473636477',
+        '4313857449417', 'EER000001406', '557053465723100', '773097726375585',]
     }
   },
   created() {
@@ -84,39 +84,42 @@ export default {
           }
           Charity.Info().then(res => {
             console.log(res)
-            if (res[12] == 1 || res[12] == 0) {
-              let demand = {
-                id: res[0],
-                sender: res[1],
-                username: res[3],
-                content: res[5],
-                contact: res[6],
-                img0: res[7],
-                img1: res[8],
-                location0: res[9],
-                status: res[12],
+            if (res[3] == "路演展示") {
+              if (res[12] == 1 || res[12] == 0) {
+                let demand = {
+                  id: res[0],
+                  sender: res[1],
+                  username: res[3],
+                  content: res[5],
+                  contact: res[6],
+                  img0: res[7],
+                  img1: res[8],
+                  location0: res[9],
+                  status: res[12],
+                }
+                this.demandData.push(demand)
               }
-              this.demandData.push(demand)
+              if (res[12] == 2 || res[12] == 3) {
+                // donate = {
+                donate.id = res[0]
+                donate.sender = res[1]
+                donate.helper = res[2]
+                donate.username = res[3]
+                donate.helperName = res[4]
+                donate.content = res[5]
+                donate.contact = res[6]
+                donate.img0 = res[7]
+                donate.img1 = res[8]
+                donate.location0 = res[9]
+                donate.location1 = res[10]//捐助者 位置地区
+                donate.express = res[11]
+                // donate.express = this.logistics[i%8]
+                donate.status = res[12]
+                // }
+                this.donatedData.push(donate)
+              }
             }
-            if (res[12] == 2 || res[12] == 3) {
-              // donate = {
-              donate.id = res[0]
-              donate.sender = res[1]
-              donate.helper = res[2]
-              donate.username = res[3]
-              donate.helperName = res[4]
-              donate.content = res[5]
-              donate.contact = res[6]
-              donate.img0 = res[7]
-              donate.img1 = res[8]
-              donate.location0 = res[9]
-              donate.location1 = res[10]//捐助者 位置地区
-              donate.express = res[11]
-              // donate.express = this.logistics[i%8]
-              donate.status = res[12]
-              // }
-              this.donatedData.push(donate)
-            }
+
             //0初始 1通过 2捐赠中 3捐赠完成 9失败
           }).catch(err => {
             console.log(err);
@@ -136,7 +139,7 @@ export default {
     },
     sureDialog() {
       console.log(this.demand)
-      if (this.demand.status==2){
+      if (this.demand.status == 2) {
         let Charity = window.confluxJS.Contract({
           address: this.demand.hash,
           abi: require("network/abiCharity.json")
@@ -239,15 +242,15 @@ h2 {
 <style>
 .el-radio-button__inner:hover {
   /*color: #7F95D1;*/
-  color: #8b9dd5!important;
+  color: #8b9dd5 !important;
 }
 
 .el-radio-button__orig-radio:checked .el-radio-button__inner {
   color: #FFF;
-  background-color: #8b9dd5!important;
-  border-color: #8b9dd5!important;
-  -webkit-box-shadow: -1px 0 0 0 #8b9dd5!important;
-  box-shadow: -1px 0 0 0 #8b9dd5!important;
+  background-color: #8b9dd5 !important;
+  border-color: #8b9dd5 !important;
+  -webkit-box-shadow: -1px 0 0 0 #8b9dd5 !important;
+  box-shadow: -1px 0 0 0 #8b9dd5 !important;
 }
 
 </style>

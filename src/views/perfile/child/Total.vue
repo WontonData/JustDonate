@@ -220,9 +220,9 @@ export default {
       };
 
       let bjData = [
-        [{name: '北京'}, {name: '上海', value: "黄浦区"}],
-        [{name: '浙江'}, {name: '湖北', value: "武汉"}],
-        [{name: '浙江'}, {name: '河南', value: '郑州'}]
+        // [{name: '北京'}, {name: '上海', value: "黄浦区"}],
+        // [{name: '浙江'}, {name: '湖北', value: "武汉"}],
+        [{name: '浙江'}, {name: '广东', value: '广州'}]
       ];
 
       let convert = (data) => {
@@ -319,42 +319,46 @@ export default {
             }
           },
           regions: [      //对不同的区块进行着色
+            // {
+            //   name: '北京', //区块名称
+            //   itemStyle: {
+            //     normal: {
+            //       areaColor: '#6a7dad'
+            //     }
+            //   }
+            // },
             {
-              name: '北京', //区块名称
-              itemStyle: {
-                normal: {
-                  areaColor: '#6a7dad'
-                }
-              }
-            },{
               name: '浙江',
               itemStyle: {
                 normal: {
                   areaColor: '#6a7dad'
                 }
               }
-            },{
-              name: '上海',
+            },
+            // {
+            //   name: '上海',
+            //   itemStyle: {
+            //     normal: {
+            //       areaColor: '#9cb7ff'
+            //     }
+            //   }
+            // },
+            {
+              name: '广东',
               itemStyle: {
                 normal: {
                   areaColor: '#9cb7ff'
                 }
               }
-            },{
-              name: '河南',
-              itemStyle: {
-                normal: {
-                  areaColor: '#9cb7ff'
-                }
-              }
-            },{
-              name: '湖北',
-              itemStyle: {
-                normal: {
-                  areaColor: '#9cb7ff'
-                }
-              }
-            }
+            },
+            // {
+            //   name: '湖北',
+            //   itemStyle: {
+            //     normal: {
+            //       areaColor: '#9cb7ff'
+            //     }
+            //   }
+            // }
             ]
         },
         series: [
