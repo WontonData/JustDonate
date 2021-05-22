@@ -1,14 +1,14 @@
 <template>
   <el-row>
-    <el-col :span="3" :offset="2">
-      <span>慈善捐赠溯源平台</span>
+    <el-col :span="4" :offset="2">
+      <span>JustDonte公益互助平台</span>
       <!--      <el-image-->
       <!--          style="width: 40px; height: 40px"-->
       <!--          :src="logo">-->
       <!--      </el-image>-->
       <!--        <head-logo :src="src"/>-->
     </el-col>
-    <el-col :span="10" :offset="6">
+    <el-col :span="9" :offset="6">
       <Nav/>
     </el-col>
     <el-col :span="2">
