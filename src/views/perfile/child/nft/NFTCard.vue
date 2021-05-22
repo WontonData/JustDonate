@@ -3,7 +3,7 @@
     <el-row>
       <el-col :span="6" v-for="(item, index) in data" :key="index">
         <el-card class="card">
-          <img :src=item.src class="image">
+          <img :src=img class="image">
           <div style="padding: 14px;">
             <span>慈善勋章#{{item.number}}</span>
             <div class="bottom clearfix">
