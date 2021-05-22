@@ -24,22 +24,18 @@
         options: [
           {
             customId:1,
-            question: '本站将于2021年5月27日12:00进行全面整改，预计于4月1日11:59结束，整改期间无法查看本站，由此给您带来很大的麻烦，请您谅解。',
+            question: '平台将于2021年5月27日12:00进行V2版本升级，会涉及善款捐助手续费的调整，会将手续费调高至0.25%。',
             answers: [
-              { value: 1, text: '同意', votes: 0 },
-              { value: 2, text: '反对', votes: 0 },
-              // { value: 3, text: 'Angular', votes: 30 },
-              // { value: 4, text: 'Other', votes: 10 }
+              { value: 1, text: '同意/Agree', votes: 0 },
+              { value: 2, text: '反对/Disagree', votes: 0 }
             ]
           },
           {
             customId:2,
-            question: '2. What\'s your favourite <strong>JS</strong> framework?',
+            question: '平台将销毁2021年第一季度未发放的VoteToken',
             answers: [
-              { value: 1, text: 'Vue', votes: 0 },
-              { value: 2, text: 'React', votes: 0 },
-              { value: 3, text: 'Angular', votes: 0 },
-              { value: 4, text: 'Other', votes: 0 }
+              { value: 1, text: '同意/Agree', votes: 0 },
+              { value: 2, text: '反对/Disagree', votes: 0 }
             ]
           }
         ]
