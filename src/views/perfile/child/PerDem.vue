@@ -64,6 +64,8 @@ export default {
       donatedData: [],
       oldDemandData: [],
       demand: {},
+      logistics: ['SF1432571440568','YT5486585591911','YT5449342729443','SF1333473636477',
+        '4313857449417','EER000001406', '557053465723100','773097726375585',]
     }
   },
   created() {
@@ -110,6 +112,7 @@ export default {
               donate.location0 = res[9]
               donate.location1 = res[10]//捐助者 位置地区
               donate.express = res[11]
+              // donate.express = this.logistics[i%8]
               donate.status = res[12]
               // }
               this.donatedData.push(donate)
@@ -119,7 +122,6 @@ export default {
             console.log(err);
           })
         })
-
       }
     },
     DemDetail(item) {

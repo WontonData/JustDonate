@@ -5,6 +5,9 @@
     <data-three />
     <data-four/>
     <bottom />
+<!--    <el-affix position="bottom" :offset="20">-->
+<!--      <el-button type="primary">距离底部 20px</el-button>-->
+<!--    </el-affix>-->
   </div>
 </template>
 
@@ -23,7 +26,7 @@ export default {
   name: "Data",
   components: {DataFour, DataThree, Bottom, DataTow, DataOne, DataCard},
   computed: {
-    ...mapState(["contractDonateFactory", "contractDemandFactory", "account"])
+    ...mapState(["contractCharityFactory", "account"])
   },
   data() {
     return {
@@ -55,11 +58,11 @@ export default {
   },
   methods: {
     init() {
-      this.contractDemandFactory.index().then(res => {
+      this.contractCharityFactory.index().then(res => {
         console.log(res)
         this.cardData[1].num = res[0]
       })
-      this.contractDonateFactory.index().then(res => {
+      this.contractCharityFactory.index().then(res => {
         console.log(res)
         this.cardData[0].num = res[0]
       })

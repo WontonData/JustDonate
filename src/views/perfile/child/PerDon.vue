@@ -70,23 +70,25 @@ export default {
           }
           Charity.Info().then(res => {
             console.log(res)
-            if (res[12] == 2 || res[12] == 3) {
-              // donate = {
-              donate.id = res[0]
-              donate.sender = res[1]
-              donate.helper = res[2]
-              donate.username = res[3]
-              donate.helperName = res[4]
-              donate.content = res[5]
-              donate.contact = res[6]
-              donate.img0 = res[7]
-              donate.img1 = res[8]
-              donate.location0 = res[9]
-              donate.location1 = res[10]//捐助者 位置地区
-              donate.express = res[11]
-              donate.status = res[12]
-              // }
-              this.donationData.push(donate)
+            if (res[3] == "杭州电子科技大学") {
+              if (res[12] == 2 || res[12] == 3) {
+                // donate = {
+                donate.id = res[0]
+                donate.sender = res[1]
+                donate.helper = res[2]
+                donate.username = res[3]
+                donate.helperName = res[4]
+                donate.content = res[5]
+                donate.contact = res[6]
+                donate.img0 = res[7]
+                donate.img1 = res[8]
+                donate.location0 = res[9]
+                donate.location1 = res[10]//捐助者 位置地区
+                donate.express = res[11]
+                donate.status = res[12]
+                // }
+                this.donationData.push(donate)
+              }
             }
             //0初始 1通过 2捐赠中 3捐赠完成 9失败
           }).catch(err => {
