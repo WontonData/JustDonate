@@ -1,12 +1,12 @@
 <template>
   <div>
     <el-col :span="8" v-for="(item, index) in cardData" :key="index" >
-      <div class="corner" :class="[item.status==1?'delivery':'transport']">
+      <div class="corner" :class="[item.status==3?'delivery':'transport']">
         <el-card :body-style="{ padding: '0 0 10px 0', background: '#f2f5ff'}" >
           <div class="mask" >
-            <p @click="DonDetail(item)">03-21 18:40<br/>已在区块链存证</p>
+            <p @click="DonDetail(item)">已在区块链存证</p>
 <!--            <el-image :src="'https://ipfs.io/ipfs/'+item.img0"-->
-            <el-image :src=src[index%6]
+            <el-image :src="'https://ipfs.io/ipfs/'+item.img0"
                       fit="cover"
                       style="height: 200px"
                       class="image">
@@ -15,7 +15,6 @@
           <card-text :item="item"/>
         </el-card>
       </div>
-
 
     </el-col>
   </div>

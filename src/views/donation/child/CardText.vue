@@ -13,7 +13,7 @@
     <span class="wuzi">
       交易哈希:
       <a target="_blank"
-         :href="`https://testnet.confluxscan.io/address/${item.hash}`">
+         :href="`https://confluxscan.io/address/${item.hash}`">
         {{ hsahSub }}
       </a>
     </span><br/>

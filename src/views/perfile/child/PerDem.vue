@@ -133,7 +133,31 @@ export default {
       console.log(item)
     },
     sureDialog() {
-      this.dialogFormVisible = false
+      console.log(this.demand)
+      if (this.demand.status==2){
+        let Charity = window.confluxJS.Contract({
+          address: this.demand.hash,
+          abi: require("network/abiCharity.json")
+        });
+        Charity.complete().sendTransaction({
+          from: this.account
+        }).then(res => {
+          this.$message({
+            message: '收货成功！',
+            type: 'success'
+          });
+          this.dialogFormVisible = false
+        }).catch(err => {
+          this.$message({
+            message: '收货失败！',
+            type: 'danger'
+          });
+          this.dialogFormVisible = false
+        })
+      } else {
+        this.dialogFormVisible = false
+      }
+      console.log("sureDialog")
     },
     releaseDialog(item) {
       console.log(item)

@@ -9,7 +9,8 @@ import { Conflux, util } from 'js-conflux-sdk'
 export const conflux = new Conflux({
   // url: "http://test.confluxrpc.org",
   // url: "https://testnet-rpc.conflux-chain.org.cng",
-  url: "https://test.confluxrpc.org/v2",
+  // url: "https://test.confluxrpc.org/v2",
+  url: "https://main.confluxrpc.com",
   defaultGasPrice: 90000000, // The default gas price of your following transactions
   defaultGas: 90000000, // The default gas of your following transactions
   logger: console,

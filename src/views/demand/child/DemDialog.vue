@@ -30,7 +30,7 @@
     </el-form>
 
     <div slot="footer" class="dialog-footer">
-      <el-button v-if="perDem" type="primary" @click="sureDialog">确定</el-button>
+      <el-button v-if="perDem" type="primary" @click="sureDialog">收货</el-button>
       <el-button v-else type="success" @click="sureDialog">捐助</el-button>
     </div>
   </div>
@@ -59,7 +59,7 @@ export default {
   },
   methods: {
     sureDialog() {
-      this.$emit("sureDialog")
+      this.$emit("sureDialog", )
     }
   }
 }

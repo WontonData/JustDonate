@@ -81,6 +81,7 @@ export default {
               donate.express = this.logistics[i%8]
               donate.status = res[12]
               // }
+              // console.log(donate.status)
               this.donationData.push(donate)
             }
             //0初始 1通过 2捐赠中 3捐赠完成 9失败

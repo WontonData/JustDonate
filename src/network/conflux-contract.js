@@ -13,19 +13,19 @@ class ConfluxContract {
       address: "cfx:acfac5zt93bh2n6k74vxkw4jv16rng8usyze5s8w1t",
       abi: require("network/abiVote.json")
     });
-    //捐赠
-    this.contractDonateFactory = window.confluxJS.Contract({
-      address: "cfxtest:type.contract:acfwg4sduktcdgrh19x53fh49rfrwerp86u2tr2xh8",
-      abi: require("network/abiDonateFactory.json")
-    });
-    //需求
-    this.contractDemandFactory = window.confluxJS.Contract({
-      address: "cfxtest:type.contract:acdarabvxm7berpv3f3ch284jng1pypkujukem1eut",
-      abi: require("network/abiDemandFactory.json")
-    });
+    // //捐赠
+    // this.contractDonateFactory = window.confluxJS.Contract({
+    //   address: "cfxtest:type.contract:acfwg4sduktcdgrh19x53fh49rfrwerp86u2tr2xh8",
+    //   abi: require("network/abiDonateFactory.json")
+    // });
+    // //需求
+    // this.contractDemandFactory = window.confluxJS.Contract({
+    //   address: "cfxtest:type.contract:acdarabvxm7berpv3f3ch284jng1pypkujukem1eut",
+    //   abi: require("network/abiDemandFactory.json")
+    // });
     //慈善
     this.contractCharityFactory = window.confluxJS.Contract({
-      address: "cfxtest:type.contract:acd5g4xhzzkgeey5bha8kpswxns0ac3kk63bauugkg",
+      address: "cfx:acd4x1rc5skd4ks14un9dvy2kkg42az1y28km8546s",
       abi: require("network/abiCharityFactory.json")
     });
     //合约
@@ -35,7 +35,7 @@ class ConfluxContract {
     // });
     //NFT
     this.contractCharityMedal = window.confluxJS.Contract({
-      address: "cfxtest:type.contract:accrg6aybacjxh7cjrp8h1khn2t8fxgn0jz37s910n",
+      address: "cfx:accwx25cy50te2zkugkc50219rt2cx9pguxw99urkb",
       abi: require("network/abiCharityMedal1.json")
     });
 
