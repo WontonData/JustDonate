@@ -82,7 +82,7 @@
   }
   .vue-poll .ans-cnt .ans-no-vote {
     text-align: center;
-    border: 2px solid #aec0df;
+    border: 2px solid #aec0df!important;
     box-sizing: border-box;
     border-radius: 5px;
     cursor: pointer;
@@ -90,10 +90,10 @@
     transition: background .2s ease-in-out;
     -webkit-transition: background .2s ease-in-out;
     -moz-transition: background .2s ease-in-out;
-    background-color: #aec0df;
+    background-color: #aec0df!important;
   }
   .vue-poll .ans-cnt .ans-no-vote .txt {
-    color: #474747;
+    color: #474747!important;
     transition: color .2s ease-in-out;
     -webkit-transition: color .2s ease-in-out;
     -moz-transition: color .2s ease-in-out;

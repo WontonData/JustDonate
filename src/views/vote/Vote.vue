@@ -79,9 +79,13 @@ export default {
   },
   methods: {
     init() {
-
-
-
+      this.contractVote.balanceOf(this.account).then(res => {
+        console.log(res)
+        console.log((res.toJSON() / 1e18).toFixed(2))
+        this.voteTokenBalance = (res.toJSON() / 1e18).toFixed(2)
+      }).catch(err => {
+        console.log(err)
+      })
 
       // this.getVoteTokenBalance()
       this.demandData = []

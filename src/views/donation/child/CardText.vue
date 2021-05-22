@@ -6,8 +6,8 @@
         <el-tag type="danger" style="margin-top: 1rem ">收</el-tag>
       </div>
       <div class="right">
-        <p>{{ item.username }}</p>
-        <p style="margin-top: 1rem ">{{ item.helperName }}</p>
+        <p>{{ item.helperName || '&nbsp;&nbsp' }}</p>
+        <p style="margin-top: 1rem ">{{ item.username }}</p>
       </div>
     </div>
     <span class="wuzi">

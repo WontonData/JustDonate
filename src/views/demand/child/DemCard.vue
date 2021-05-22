@@ -3,7 +3,7 @@
     <el-col :span="8" v-for="(item, index) in cardData" :key="index">
       <el-card :body-style="{ padding: '0 0 10px 0' }" :class="[{'voted' :item.status<1}]"  @click.native="DemDetail(item)">
         <card-text :item="item" :key="index"/>
-        <el-tag class="vote" v-if="item.status<1" type="danger">投票中</el-tag>
+        <el-tag class="vote" v-if="item.status<1" type="danger">审核中</el-tag>
         <el-tag class="vote" v-else type="success">已通过</el-tag>
 <!--        <div class="vote" v-show="item.status<1">投票中</div>-->
         <el-row >
