@@ -78,7 +78,8 @@ export default {
               donate.img1 = res[8]
               donate.location0 = res[9]
               donate.location1 = res[10]//捐助者 位置地区
-              donate.express = this.logistics[i%8]
+              // donate.express = this.logistics[i%8]
+              donate.express = res[11]
               donate.status = res[12]
               // }
               // console.log(donate.status)

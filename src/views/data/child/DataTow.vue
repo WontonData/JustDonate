@@ -3,6 +3,9 @@
     <Title :title="title"></Title>
     <el-row :gutter="40">
       <data-card :data-card="cardData"/>
+<!--      <el-col :span="2" :offset="13">-->
+        <el-button round type="primary" plain @click="dialogRelease = true">发布需求</el-button>
+<!--      </el-col>-->
     </el-row>
     <el-row>
       <el-col :span="16">
@@ -12,6 +15,9 @@
         <span>截止{{ this.getDay(0, 3600000) }} 18:40</span>
       </el-col>
     </el-row>
+    <el-dialog title="发布物资需求" :visible.sync="dialogRelease">
+      <per-don-dialog @releaseDialog="releaseDialog"/>
+    </el-dialog>
   </div>
 </template>
 
@@ -19,14 +25,20 @@
 
 import DataCard from "@/views/data/child/DataCard";
 import Title from "@/components/title/Title";
+import PerDonDialog from "@/views/perfile/child/PerDonDialog";
+import {mapState} from "vuex";
+import store from "@/store";
 
 export default {
   name: "DataTow",
-  components: {Title, DataCard},
+  components: {PerDonDialog, Title, DataCard},
+  computed: {
+    ...mapState(["currentUser", "contractDemandFactory", "account", "contractCharityFactory"])
+  },
   data() {
     return {
       title: '数据总览',
-
+      dialogRelease: false
     }
   },
   props: {
@@ -54,6 +66,38 @@ export default {
       }
       return m
     },
+    releaseDialog(item) {
+      if (this.account) {
+        this.contractCharityFactory.deployer(
+            item.username,
+            item.content,
+            item.contact,
+            item.address,
+            item.img0,
+        ).sendTransaction({
+          from: this.account
+        }).confirmed().then((res) => {
+          console.log(res)
+          this.$message({
+            message: '发布成功！',
+            type: 'success'
+          });
+          this.dialogRelease = false
+
+        }).catch(err => {
+          console.log(err)
+          this.$message({
+            message: '发布失败！',
+            type: 'error'
+          });
+        })
+      } else {
+        store.dispatch("getAccount");
+      }
+      console.log(item)
+
+    },
+
   }
 }
 </script>
@@ -74,5 +118,8 @@ span {
 
 h2 {
   color: #1e2947;
+}
+.el-button {
+  margin: 30px;
 }
 </style>
