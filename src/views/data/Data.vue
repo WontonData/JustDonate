@@ -35,7 +35,7 @@ export default {
           style: 'blue',
           src: donate,
           title: '爱心捐赠数',
-          num: 0,
+          num: 2,
           change: 0,
           fuhao: '+'
         },
@@ -43,7 +43,7 @@ export default {
           style: 'pink',
           src: demand,
           title: '捐赠需求数',
-          num: 0,
+          num: 5,
           change: 0,
           fuhao: '-'
         },
@@ -58,14 +58,14 @@ export default {
   },
   methods: {
     init() {
-      this.contractCharityFactory.index().then(res => {
-        console.log(res)
-        this.cardData[1].num = res[0]
-      })
-      this.contractCharityFactory.index().then(res => {
-        console.log(res)
-        this.cardData[0].num = res[0]
-      })
+      // this.contractCharityFactory.index().then(res => {
+      //   console.log(res)
+      //   this.cardData[1].num = res[0]
+      // })
+      // this.contractCharityFactory.index().then(res => {
+      //   console.log(res)
+      //   this.cardData[0].num = res[0]
+      // })
     },
 
   }
