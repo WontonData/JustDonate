@@ -80,22 +80,35 @@
             <el-col :span="2"></el-col>
           </el-row>
           <!--总榜-->
-          <el-row v-for="(nftOwner,index) in filterNftOwners" :key="index" style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;margin-left: 2px">
+<!--          <el-row v-for="(nftOwner,index) in filterNftOwners" :key="index" style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;margin-left: 2px">-->
+<!--            <el-col :span="3" v-if="index===0||index===1||index===2"><img :src=rankImg[index]></el-col>-->
+<!--            <el-col :span="3" v-if="index!==0&&index!==1&&index!==2" style="padding-left: 17px">-->
+<!--              <h4>{{index+1}}</h4>-->
+<!--            </el-col>-->
+<!--            <el-col :span="4"><img :src=img class="image"></el-col>-->
+<!--            <el-col :span="12">-->
+<!--              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">{{nftOwner.address.substring(0,15)}}...</el-col></el-row>-->
+<!--              <el-row><el-col style="color: #464646;font-size: 13px">爱心值{{nftOwner.medal*255}}</el-col></el-row>-->
+<!--            </el-col>-->
+<!--            <el-col :span="1">{{nftOwner.medal}}</el-col>-->
+<!--            <el-col :span="2"><img :src=img1 class="img1"></el-col>-->
+<!--            <el-col :span="2"> <span class="el-icon-arrow-right" style="color: rgba(53,53,53,0.41)"></span></el-col>-->
+<!--          </el-row>-->
+
+          <el-row v-for="(item,index) in rankJiaDe" :key="index" style="display: flex;justify-content: center;align-items: center;margin-bottom: 20px;margin-left: 2px">
             <el-col :span="3" v-if="index===0||index===1||index===2"><img :src=rankImg[index]></el-col>
             <el-col :span="3" v-if="index!==0&&index!==1&&index!==2" style="padding-left: 17px">
               <h4>{{index+1}}</h4>
             </el-col>
-
             <el-col :span="4"><img :src=img class="image"></el-col>
             <el-col :span="12">
-              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">{{nftOwner.address.substring(0,15)}}...</el-col></el-row>
-              <el-row><el-col style="color: #464646;font-size: 13px">爱心值{{nftOwner.medal*255}}</el-col></el-row>
+              <el-row><el-col style="font-weight: bold;margin-bottom: 6px">{{item.address.substring(0,15)}}...</el-col></el-row>
+              <el-row><el-col style="color: #464646;font-size: 13px">爱心值{{item.medal*255}}</el-col></el-row>
             </el-col>
-            <el-col :span="1">{{nftOwner.medal}}</el-col>
+            <el-col :span="1">{{item.medal}}</el-col>
             <el-col :span="2"><img :src=img1 class="img1"></el-col>
             <el-col :span="2"> <span class="el-icon-arrow-right" style="color: rgba(53,53,53,0.41)"></span></el-col>
           </el-row>
-
         </el-col>
       </el-row>
     </div>
@@ -148,7 +161,28 @@
         nftOwners: [],
         rankImg: [rank1,rank2,rank3],
         nftRankList: [],
-        input3: ''
+        input3: '',
+        rankJiaDe: [
+          {
+            address:'cfx:aap9mbkjayurhtrcka9pchre1m3fmbz9gez0hun8zx',
+            medal:'9'
+          },{
+            address:'cfx:aatjmdpyhmgf1wbe3h4b3m6x7yy7esd0525m76vk3m',
+            medal:'7'
+          },{
+            address:'cfx:aanu9pm7n3r53jj4t942chf9b7xhgg02gu52v75zap',
+            medal:'6'
+          },{
+            address:'cfx:aarrdu3wde9pxn1pa3r7vcfavk6wah1sapxsha6t5b',
+            medal:'5'
+          },{
+            address:'cfx:aajvrve0c38hpnk3annpuhb4xyup1rhcee8vfykew2',
+            medal:'3'
+          },{
+            address:'cfx:aap9mbkjayurhtrcka9pchre1m3fmbz9ge97yaryv3',
+            medal:'1'
+          }
+        ]
       }
     },
 
